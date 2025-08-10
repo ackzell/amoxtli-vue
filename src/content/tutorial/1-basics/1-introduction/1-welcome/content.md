@@ -1,38 +1,27 @@
 ---
 type: lesson
-title: Welcome to TutorialKit
-focus: /counter.js
+title: Welcome to Vue
+editor: false
 ---
 
-# Welcome to TutorialKit
+# Hello world!
 
-Hey there, and welcome to TutorialKit 👋!
+This is a POC of a course platform that can be used as study materials for in-person workshops.
 
-To kick things off, we have prepared a small demo lesson for you, where we'll dive into the concept of event handling in JavaScript. Our task is to resuscitate a lifeless counter app by introducing the crucial element of interactivity: **event listeners**.
+Note the `msg` **reactive variable** that is being used in a two-way binding flow.
 
-Let's look at the preview on the right for a moment and try to click on the button that says `counter is 0`. We'll notice that it doesn't work.
+```vue "msg"  showLineNumbers title="App.vue"
+<script setup lang="ts">
+import { ref } from 'vue'
 
-In the code for `counter.js`, which you can find on the right, we have a `setupCounter` function responsible for initializing our counter app. However, a crucial component is missing: an event listener for the button.
-
-Event listeners are essential in web development as they enable our applications to respond to user actions. In this case, we need to listen for clicks on the button to increment the counter.
-
-To address this, we'll call the `addEventListener` to attach a `click` event listener to the button element. When a click is detected, we'll execute a callback function that increments the counter and updates the `innerHTML` accordingly.
-
-```ts add={9}
-export function setupCounter(element) {
-  let counter = 0;
-
-  const setCounter = (count) => {
-    counter = count;
-    element.innerHTML = `count is ${counter}`;
-  };
-
-  element.addEventListener('click', () => setCounter(counter + 1));
-
-  setCounter(0);
-}
+const msg = ref('Hola Mundo!')
+</script>
+  
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
 ```
 
-This gives you a sneak peak of the TutorialKit experience, demonstrating what it's capable of.
+The first few lessons could leverage the **Vue Playground** app that is rendered on the right ->
 
-Happy writing!

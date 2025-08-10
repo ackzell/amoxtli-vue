@@ -1,6 +1,8 @@
 ---
 type: tutorial
-mainCommand: ['npm run dev', 'Starting http server']
+mainCommand: ['npm run serve', 'Loading the Vue Playground']
 prepareCommands:
   - ['npm install', 'Installing dependencies']
+openInStackBlitz: false
+terminal: false
 ---

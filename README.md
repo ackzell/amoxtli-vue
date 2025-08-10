@@ -1,3 +1,24 @@
+# amoxtli-vue
+
+> **[ah-MOX-tlee](https://nahuatl.wired-humanities.org/content/amoxtli)** means book. So this is the book of Vue.
+
+This is a spiritual successor to [notes-on-vue](https://notes-on-vue.ackzell.dev). The goal is to provide a multimedia and interactive experience that will cater to different learning styles, with emphasis on the hands-on aspect which the original site attempted to accomplish via CodePen embeds, but it always lacked the sense of a "real" environment where to try Vue.
+
+## Text
+Same as with the original project, text based and "blog post" style content.
+![Screenshot 1](docs/images/welcome.png)
+
+## Video content
+So far there is no way to embed YouTube videos within a lesson. This would be a great enhancement to achieve the _multimedia_ goal. In the meantime, some prominent links can be added via a the `src/components/YouTubeLink.tsx` React component.
+![Screenshot 2](docs/images/video-link.png)
+
+## Interactive Playground
+Besides the obvious feature why to choose [TutorialKit](https://tutorialkit.dev/) for this project ([WebContainers](https://webcontainers.io/)) Vue itself also [has a REPL](https://github.com/vuejs/repl) that when placed in a _Preview_ pane can act as a perfect companion to allow "students" to get their hands on the framework immediately. This should be really good for the very basics, providing an environment with the "sample" code for each concept, but also providing a way for users to experiment on their own without distractions.
+![Screenshot 3](docs/images/yehyecoa-vue.png)
+
+
+# Original Readme
+
 # TutorialKit Starter
 
 👋 Welcome to TutorialKit!
