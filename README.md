@@ -1,6 +1,6 @@
 # amoxtli-vue
 
-> **[ah-MOX-tlee](https://nahuatl.wired-humanities.org/content/amoxtli)** means book. So this is the book of Vue.
+> **[ah-MOX-tlee](https://nahuatl.wired-humanities.org/content/amoxtli)** in Nahuatl means book. So this is the book of Vue.
 
 This is a spiritual successor to [notes-on-vue](https://notes-on-vue.ackzell.dev). The goal is to provide a multimedia and interactive experience that will cater to different learning styles, with emphasis on the hands-on aspect which the original site attempted to accomplish via CodePen embeds, but it always lacked the sense of a "real" environment where to try Vue.
 
@@ -16,6 +16,8 @@ So far there is no way to embed YouTube videos within a lesson. This would be a 
 Besides the obvious feature why to choose [TutorialKit](https://tutorialkit.dev/) for this project ([WebContainers](https://webcontainers.io/)) Vue itself also [has a REPL](https://github.com/vuejs/repl) that when placed in a _Preview_ pane can act as a perfect companion to allow "students" to get their hands on the framework immediately. This should be really good for the very basics, providing an environment with the "sample" code for each concept, but also providing a way for users to experiment on their own without distractions.
 ![Screenshot 3](docs/images/yehyecoa-vue.png)
 
+> [!note]
+> The [`yehyecoa-vue`](https://github.com/ackzell/yehyecoa-vue/issues/1#issuecomment-3191337879) repo has more details on how this integration works.
 
 # Original Readme
 

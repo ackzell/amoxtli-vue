@@ -1,5 +1,32 @@
 {
-    "cSpell.words": [
-        "axmoxtli"
+  "cSpell.words": ["amoxtli", "yehyecoa"],
+  "workbench.colorTheme": "Monochrome Dark",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#eff6ff",
+    "tab.inactiveForeground": "#5d5d5d",
+    "list.hoverBackground": "#ffffff1a",
+    "list.hoverForeground": "#f7f7f7",
+    "list.focusBackground": "#ffffff1a",
+    "list.focusForeground": "#f7f7f7",
+    "list.activeSelectionBackground": "#ffffff1a",
+    "list.activeSelectionForeground": "#f7f7f7",
+    "editorBracketHighlight.foreground1": "#DDDDDD",
+    "editorBracketHighlight.foreground2": "#AAAAAA",
+    "editorBracketHighlight.foreground3": "#787878",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#f7f7f7",
+    "editorIndentGuide.activeBackground1": "#656565"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#676767",
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
     ]
+  }
+  // "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }
