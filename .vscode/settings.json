@@ -1,7 +1,15 @@
 {
-  "cSpell.words": ["amoxtli", "tutorialkit", "yehyecoa"],
+  "cSpell.words": [
+    "amoxtli",
+    "iconify",
+    "mynaui",
+    "Tagify",
+    "tutorialkit",
+    "unocss",
+    "yehyecoa"
+  ],
   "workbench.colorTheme": "Monochrome Dark",
-  "workbench.iconTheme": "vs-seti",
+  "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "tab.activeBorderTop": "#eff6ff",
     "tab.inactiveForeground": "#5d5d5d",
@@ -27,6 +35,7 @@
         }
       }
     ]
-  }
+  },
+  "editor.formatOnSave": true
   // "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

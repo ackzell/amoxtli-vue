@@ -7,20 +7,20 @@
     <title>Vue live playground</title>
 
      <script>
-      const savedTheme = localStorage.getItem(
-        'yehyecoa-vue-theme',
+      const savedPreferDark = localStorage.getItem(
+        'vue-sfc-playground-prefer-dark',
       )
       if (
-        savedTheme === 'dark' ||
-        (!savedTheme &&
+        savedPreferDark === 'true' ||
+        (!savedPreferDark &&
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         document.documentElement.classList.add('dark')
       }
     </script>
 
-    <script type="module" crossorigin src="/assets/index-BDTBC2ij.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B9t5Fdle.css">
+    <script type="module" crossorigin src="/assets/index-D1nAZngY.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Ca79eSg1.css">
   </head>
   <body>
     <div id="app"></div>

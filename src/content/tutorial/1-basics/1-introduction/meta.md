@@ -1,8 +1,8 @@
 ---
 type: chapter
 title: Introduction
-mainCommand: ['node server', 'Loading the Vue Playground']
+mainCommand: ['node server.js', 'Loading the Vue Playground']
 editor: false
-terminal: false
+terminal: false 
 template: yehyecoa
 ---

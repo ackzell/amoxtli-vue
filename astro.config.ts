@@ -6,11 +6,16 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [tutorialkit({
-    // @ts-ignore
-    expressiveCodePlugins: [pluginFileIcons({
-      iconClass: 'av-icon',
-      titleClass: 'av-title',
-    })],
-  })],
+  integrations: [
+    tutorialkit({
+      themes: ['snazzy-light', 'vesper'],
+      expressiveCodePlugins: [
+        // @ts-ignore
+        pluginFileIcons({
+          iconClass: 'av-icon',
+          titleClass: 'av-title',
+        }),
+      ],
+    }),
+  ],
 });

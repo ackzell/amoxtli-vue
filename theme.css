@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html,
+body {
+  font-family: 'Work Sans';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Mono';
+}
+
+pre,
+code,
+.code {
+  font-family: 'Ubuntu Mono' !important;
+}
+
+/* styles for the plugin that adds icons to snippets */
 :root {
   .av-icon {
     width: 1rem;
@@ -10,11 +39,93 @@
   }
 }
 
+:root[data-theme='light'] {
+  --amv-primary-text: hsl(210, 29%, 29%);
+  /* --amv-highlight: hsl(153,48%,49%); */
+  --amv-highlight: hsl(36, 76%, 45%);
+
+  --background: whitesmoke;
+  --foreground: oklch(0.145 0 0);
+  --card: #fefefe;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+:root[data-theme='dark'] {
+  --amv-primary-text: hsl(210, 29%, 80%);
+  --amv-highlight: hsl(36, 76%, 52%);
+  --amv-highlight: hsl(328, 71%, 50%);
+
+  --background: #0b0a09;
+  --background: oklch(0.145 0 0);
+  --background: hsl(30, 10%, 8%);
+
+  --foreground: #c9c9c9;
+  --card: #262626;
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: hsl(30, 0%, 18%);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: hsl(30, 10%, 13%);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
 /* C/* Color Tokens Light */
 :root,
 :root[data-theme='light'] {
-  --tk-background-primary: theme('colors.gray.0');
-  --tk-background-secondary: theme('colors.gray.50');
+  --tk-background-primary: var(--background);
+  --tk-background-secondary: var(--card);
   --tk-background-active: theme('colors.gray.100');
   --tk-background-active-secondary: theme('colors.gray.0');
   --tk-background-brighter: theme('colors.gray.0');
@@ -27,15 +138,21 @@
   --tk-background-info: theme('colors.info.100');
   --tk-background-tip: theme('colors.tip.100');
 
-  --tk-text-primary: theme('colors.gray.800');
-  --tk-text-primary-inverted: theme('colors.gray.0');
-  --tk-text-secondary: theme('colors.gray.600');
-  --tk-text-secondary-inverted: theme('colors.gray.200');
+  --tk-text-primary: var(
+    --amv-primary-text
+  ); /* Headings, refresh preview, lesson navigation button text  */
+  --tk-text-primary-inverted: tomato; /* no idea */
+  --tk-text-secondary: var(
+    --amv-primary-text
+  ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
+  --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.400');
-  --tk-text-body: theme('colors.gray.700');
-  --tk-text-heading: theme('colors.gray.950');
-  --tk-text-active: theme('colors.gray.1000');
-  --tk-text-accent: theme('colors.accent.600');
+  --tk-text-body: var(--foreground);
+  --tk-text-heading: var(
+    --amv-highlight
+  ); /* "preview", "Preparing environment" */
+  --tk-text-active: var(--amv-highlight);
+  --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.700');
   --tk-text-warning: theme('colors.warning.600');
   --tk-text-negative: theme('colors.negative.600');
@@ -45,7 +162,7 @@
   --tk-border-primary: theme('colors.gray.200');
   --tk-border-secondary: theme('colors.gray.200');
   --tk-border-brighter: theme('colors.gray.300');
-  --tk-border-accent: theme('colors.accent.600');
+  --tk-border-accent: var(--amv-highlight);
   --tk-border-positive: theme('colors.positive.600');
   --tk-border-warning: theme('colors.warning.400');
   --tk-border-negative: theme('colors.negative.500');
@@ -72,16 +189,19 @@
   --tk-terminal-brightMagenta: #bc05bc;
   --tk-terminal-brightCyan: #0598bc;
   --tk-terminal-brightWhite: #a5a5a5;
+
+  .hover\:text-tk-elements-navCard-textColorHover:hover {
+    background-color: var(--card);
+  }
 }
 
 /* Color Tokens Dark */
 :root[data-theme='dark'] {
-  --tk-background-primary: theme('colors.gray.950');
-  --tk-background-secondary: theme('colors.gray.900');
-  --tk-background-active: theme('colors.gray.800');
-  --tk-background-active-secondary: theme('colors.gray.1000');
-  --tk-background-brighter: theme('colors.gray.800');
-  --tk-background-accent: theme('colors.accent.800');
+  --tk-background-primary: var(--background);
+  --tk-background-secondary: var(--card);
+  --tk-background-active-secondary: tomato; /* no idea */
+  --tk-background-brighter: var(--muted);
+  --tk-background-accent: tomato;
   --tk-background-accent-secondary: theme('colors.accent.400');
   --tk-background-accent-active: theme('colors.accent.300');
   --tk-background-positive: theme('colors.positive.950');
@@ -90,25 +210,29 @@
   --tk-background-info: theme('colors.info.950');
   --tk-background-tip: theme('colors.tip.950');
 
-  --tk-text-primary: theme('colors.gray.200');
-  --tk-text-primary-inverted: theme('colors.gray.950');
-  --tk-text-secondary: theme('colors.gray.400');
-  --tk-text-secondary-inverted: theme('colors.gray.700');
+  --tk-text-primary: var(
+    --amv-primary-text
+  ); /* Headings, refresh preview, lesson navigation button text  */
+  --tk-text-primary-inverted: tomato; /* no idea */
+  --tk-text-secondary: var(
+    --amv-primary-text
+  ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
+  --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.600');
-  --tk-text-body: theme('colors.gray.300');
-  --tk-text-heading: theme('colors.gray.100');
-  --tk-text-active: theme('colors.gray.0');
-  --tk-text-accent: theme('colors.accent.500');
+  --tk-text-body: var(--foreground);
+  --tk-text-heading: var(--amv-highlight);
+  --tk-text-active: var(--amv-highlight);
+  --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
   --tk-text-negative: theme('colors.negative.400');
   --tk-text-info: theme('colors.info.300');
   --tk-text-tip: theme('colors.tip.400');
 
-  --tk-border-primary: theme('colors.gray.800');
+  --tk-border-primary: var(--border);
   --tk-border-secondary: theme('colors.gray.800');
   --tk-border-brighter: theme('colors.gray.700');
-  --tk-border-accent: theme('colors.accent.700');
+  --tk-border-accent: var(--amv-highlight);
   --tk-border-positive: theme('colors.positive.400');
   --tk-border-warning: theme('colors.warning.400');
   --tk-border-negative: theme('colors.negative.500');
@@ -135,6 +259,15 @@
   --tk-terminal-brightMagenta: #ff6ac1;
   --tk-terminal-brightCyan: #9aedfe;
   --tk-terminal-brightWhite: #f1f1f0;
+
+  --tk-elements-panel-header-backgroundColor: var(--background);
+  --tk-elements-breadcrumbs-toggleButton-backgroundColor: hsl(30, 5%, 15%);
+  --tk-elements-breadcrumbs-toggleButton-borderColor: hsl(30, 5%, 15%);
+  --tk-elements-breadcrumbs-toggleButton-borderColorHover: var(--amv-highlight);
+
+  .hover\:text-tk-elements-navCard-textColorHover:hover {
+    background-color: var(--background);
+  }
 }
 
 /*

@@ -1,0 +1,53 @@
+diff --git a/dist/index.js b/dist/index.js
+index ddb7ca7f54756791ecdb14e73f4cd68a0dba4247..697d14711524f4f541b71b13c039ef1086a61011 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -12,13 +12,14 @@ import expressiveCode from "astro-expressive-code";
+ import UnoCSS from "unocss/astro";
+ function extraIntegrations({
+   root,
+-  expressiveCodePlugins = []
++  expressiveCodePlugins = [],
++  themes = ["dark-plus", "light-plus"]
+ }) {
+   return [
+     react(),
+     expressiveCode({
+       plugins: [pluginCollapsibleSections(), pluginLineNumbers(), ...expressiveCodePlugins],
+-      themes: ["dark-plus", "light-plus"],
++      themes,
+       customizeTheme: (theme) => {
+         const isDark = theme.type === "dark";
+         theme.styleOverrides = {
+@@ -34,11 +35,7 @@ function extraIntegrations({
+         };
+       },
+       themeCssSelector: (theme) => {
+-        let customThemeName = "light";
+-        if (theme.name === "dark-plus") {
+-          customThemeName = "dark";
+-        }
+-        return `[data-theme='${customThemeName}']`;
++        return `[data-theme='${theme.type}']`;
+       },
+       defaultProps: {
+         showLineNumbers: false
+@@ -878,7 +875,8 @@ function createPlugin({
+   components,
+   isolation,
+   enterprise,
+-  expressiveCodePlugins = []
++  expressiveCodePlugins = [],
++  themes,
+ } = {}) {
+   const webcontainerFiles = new WebContainerFiles();
+   let _config;
+@@ -942,7 +940,7 @@ function createPlugin({
+         config.integrations.splice(
+           selfIndex + 1,
+           0,
+-          ...extraIntegrations({ root: fileURLToPath4(config.root), expressiveCodePlugins })
++          ...extraIntegrations({ root: fileURLToPath4(config.root), expressiveCodePlugins, themes })
+         );
+       },
+       "astro:config:done"({ config }) {
