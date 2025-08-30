@@ -31,7 +31,6 @@
     "@types/react": "^18.3.3",
     "astro": "^4.15.0",
     "astro-expressive-code": "0.35.6",
-    "patch-package": "^8.0.0",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.4.5"
   }
