@@ -204,7 +204,7 @@ code,
 :root[data-theme='dark'] {
   --tk-background-primary: var(--background);
   --tk-background-secondary: var(--card);
-  --tk-background-active-secondary: tomato; /* no idea */
+  --tk-background-active-secondary: var(--card); /* terminal tab bg */
   --tk-background-brighter: var(--muted);
   --tk-background-accent: tomato;
   --tk-background-accent-secondary: theme('colors.accent.400');
