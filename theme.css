@@ -26,6 +26,11 @@ code,
   font-family: 'Ubuntu Mono' !important;
 }
 
+.markdown-content {
+  max-width: 1024px;
+  margin: auto;
+}
+
 /* styles for the plugin that adds icons to snippets */
 :root {
   .av-icon {
