@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const msg = ref('Hola Mundo!')
+const msg = ref('Hola App_2.vue!');
 </script>
 
 <template>
