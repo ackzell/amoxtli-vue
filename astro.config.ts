@@ -8,7 +8,7 @@ export default defineConfig({
   },
   integrations: [
     tutorialkit({
-      themes: ['snazzy-light', 'vesper'],
+      expressiveCodeThemes: ['snazzy-light', 'vesper'],
       expressiveCodePlugins: [
         // @ts-ignore
         pluginFileIcons({

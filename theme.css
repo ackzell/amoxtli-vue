@@ -204,7 +204,7 @@ code,
 :root[data-theme='dark'] {
   --tk-background-primary: var(--background);
   --tk-background-secondary: var(--card);
-  --tk-background-active-secondary: var(--card); /* terminal tab bg */
+  --tk-background-active-secondary: var(--background); /* terminal tab bg */
   --tk-background-brighter: var(--muted);
   --tk-background-accent: tomato;
   --tk-background-accent-secondary: theme('colors.accent.400');
@@ -553,7 +553,7 @@ code,
   );
 
   /* Terminal */
-  --tk-elements-terminal-backgroundColor: var(--tk-background-active-secondary);
+  --tk-elements-terminal-backgroundColor: var(--background);
   --tk-elements-terminal-textColor: var(--tk-terminal-foreground);
   --tk-elements-terminal-cursorColor: var(--tk-terminal-foreground);
   --tk-elements-terminal-selection-backgroundColor: var(
