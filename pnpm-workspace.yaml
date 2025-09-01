@@ -1,2 +1,0 @@
-patchedDependencies:
-  '@tutorialkit/astro@1.5.2': patches/@tutorialkit__astro@1.5.2.patch
