@@ -1,0 +1,76 @@
+---
+type: lesson
+title: Watchers
+slug: watchers
+---
+
+# Watchers
+
+Sometimes you want to know if a property in your app changed and by that, we are referring to `data` and `computed` properties.
+
+## Syntax
+
+We add yet another key in the configuration object, in this case: `watch` (line `12`).
+
+```js{12-16}
+new Vue({
+  data: {
+      message: 'hello'
+  },
+  methods: { ...
+  },
+  computed: {
+      myComputedProperty() {
+          return this.message.split('');
+      }
+  },
+  watch: {
+      // note this is the same name as our `data` property
+      message(newValue, oldValue) {
+          // do stuff here
+      }
+  }
+});
+```
+
+You can tell by the comment on line `13` we now declare our watcher by using the same name as we do on the property definition (in this case `message`) to create a method in that `watch` object.
+
+It is important to note that this **should not** be an arrow function, or you won't have access to  the Vue instance on `this`.
+
+Now we can get a hold of the `oldValue`, or the previous value this property had, and `newValue`, which is... well... the new one.
+
+# Alternative Syntax
+
+::: tip
+I'll just share one alternative, but you can check out the different ways to define watchers [here](https://vuejs.org/v2/api/#watch).
+:::
+
+Another way to define the watchers is to use an object, instead of a method. Please note line `14` where we tell the watcher to be `deep`, from the docs:
+
+
+> the callback will be called whenever any of the watched object
+properties change regardless of their nested depth
+
+```js{10-15}
+new Vue({
+  data: {
+      message: 'hello'
+  },
+  methods: { ...
+  },
+  computed: { ...
+  },
+  watch: {
+      message: {
+          handler(newValue, oldValue) {
+              // do stuff
+          },
+          deep: true // true | false
+      }
+  }
+});
+```
+
+## Example
+```file:/App.vue  showLineNumbers title="Apep.vue"
+```
