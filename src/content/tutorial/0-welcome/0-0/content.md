@@ -6,14 +6,11 @@ slug: "welcome-aboard"
 
 # Hello there!
 
-Allow me to introduce myself super quickly: I am [Axel Uriel Martínez Castillo](https://ackzell.dev), a software developer from 🇲🇽.
+Welcome to this spiritual successor to [Notes on Vue](https://notes-on-vue.ackzell.dev). Fortunately, lots of the contents of that site are still somewhat relevant and I get to keep it online while exploring a more modern way of sharing knowledge about Vue.js with you through this new project of mine.
 
-Welcome to this website about Vue.js, one of my favorite technologies for the past few years.
+From the original site: 
+> Allow me to introduce myself super quickly: I am [Axel Uriel Martínez Castillo](https://ackzell.dev), a software developer from 🇲🇽
 
-I felt in love with Vue because of its easy learning curve and the fact that it is so quick to develop ideas with it.
+This project is aimed at being the contents of scheduled online workshops that I want to hold and if you are reading this is because you are in!
 
-We'll explore together a little bit about what Vue is all about and my personal thoughts regarding the technology.
-
-I will give you a brief overview of the framework from my perspective and in what context it lives right now according to my opinion.
-
-This is the section you skip if you are already sold on learning Vue and are not that interested in knowing what I think. No hard feelings, I know it isn't personal 😉.
+So thank you so much for trusting me with this and rest assured I will be making the best of my efforts so you can have a pleasant and unique experience while learning something new.
