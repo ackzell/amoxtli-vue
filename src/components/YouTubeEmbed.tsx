@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 interface VideoEmbedProps {
   /** Video ID for YouTube */
   id: string;
