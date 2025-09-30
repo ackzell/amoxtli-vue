@@ -1,8 +1,29 @@
 [[headers]]
 for = "/*"
+
 [headers.values]
 Cross-Origin-Embedder-Policy = "require-corp"
 Cross-Origin-Opener-Policy = "same-origin"
 
 [build.environment]
 SECRETS_SCAN_OMIT_KEYS = "PUBLIC_SUPABASE_KEY,SUPABASE_KEY,SUPABASE_URL,PUBLIC_SUPABASE_URL"
+
+# Exclude login page
+[[edge_functions]]
+function = "public"
+path = "/login"
+
+# Exclude Supabase auth callback
+[[edge_functions]]
+function = "public"
+path = "/auth/callback"
+
+# Exclude static assets (adjust paths/extensions as needed)
+[[edge_functions]]
+function = "public"
+path = "/assets/*"
+
+# Protect everything else
+[[edge_functions]]
+function = "protect"
+path = "/*"
