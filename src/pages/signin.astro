@@ -1,5 +1,7 @@
 ---
 // src/pages/signin.astro
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
 ---
 
 <!doctype html>
@@ -31,10 +33,10 @@
     <h1>Sign In</h1>
     <button id="github-signin">Sign in with GitHub</button>
 
-    <script type="module">
+    <script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
       import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-      const supabase = createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_KEY');
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
       document
         .getElementById('github-signin')
