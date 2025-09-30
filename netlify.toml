@@ -23,6 +23,11 @@ path = "/auth/callback"
 function = "public"
 path = "/assets/*"
 
+# IMPORTANT: allow serverless functions used by the callback to run without auth
+[[edge_functions]]
+function = "public"
+path = "/.netlify/functions/*"
+
 # Protect everything else
 [[edge_functions]]
 function = "protect"
