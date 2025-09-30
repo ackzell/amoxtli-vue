@@ -40,6 +40,13 @@
       }
     ]
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
   // "editor.bracketPairColorization.independentColorPoolPerBracketType": true
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "netlify/edge-functions"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/Users/ackzell/Library/Preferences/netlify/deno-cli/deno"
 }

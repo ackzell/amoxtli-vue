@@ -1,0 +1,70 @@
+---
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
+---
+
+<!doctype html>
+<html>
+  <head><title>Auth callback</title></head>
+  <body>
+    <h1>Finishing login...</h1>
+    <p id="msg">Please wait...</p>
+
+    <script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
+      // load client at runtime from ESM CDN
+      import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      (async () => {
+        const msg = document.getElementById('msg');
+
+        try {
+          // Try to get session via Supabase client
+          const {
+            data: { session },
+            error,
+          } = await supabase.auth.getSession();
+          if (error) console.warn('supabase getSession error', error);
+
+          // Fallback: parse access_token from URL fragment if present
+          const hash = window.location.hash || '';
+          const tokenFromHashMatch = hash.match(/access_token=([^&]+)/);
+          const token =
+            session?.access_token ||
+            (tokenFromHashMatch
+              ? decodeURIComponent(tokenFromHashMatch[1])
+              : null);
+
+          if (!token) {
+            console.warn('No session or token found in callback');
+            if (msg) msg.textContent = 'No session found';
+            return;
+          }
+
+          // POST token to server function to set HttpOnly cookie
+          const res = await fetch('/.netlify/functions/set-cookie', {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token }),
+          });
+
+          if (!res.ok) {
+            const text = await res.text();
+            console.error('Failed to set cookie:', res.status, text);
+            if (msg) msg.textContent = 'Server error setting cookie';
+            return;
+          }
+
+          // Clean up URL and redirect to app root
+          history.replaceState(null, '', '/');
+          window.location.replace('/');
+        } catch (err) {
+          console.error(err);
+          if (msg) msg.textContent = 'Unexpected error';
+        }
+      })();
+    </script>
+  </body>
+</html>

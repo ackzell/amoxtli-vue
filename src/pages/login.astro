@@ -1,0 +1,52 @@
+---
+// src/pages/signin.astro
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sign In</h1>
+    <button id="github-signin">Sign in with GitHub</button>
+
+    <script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
+      import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      document
+        .getElementById('github-signin')
+        .addEventListener('click', async () => {
+          // IMPORTANT: redirect to the callback page so the browser-side callback script runs
+          await supabase.auth.signInWithOAuth({
+            provider: 'github',
+            options: { redirectTo: window.location.origin + '/auth/callback' },
+          });
+        });
+    </script>
+  </body>
+</html>
