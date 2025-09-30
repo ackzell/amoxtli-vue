@@ -1,4 +1,3 @@
-// ...existing code...
 import type { Handler } from '@netlify/functions';
 
 export const handler: Handler = async (event) => {
@@ -47,4 +46,3 @@ export const handler: Handler = async (event) => {
     return { statusCode: 500, headers: corsHeaders, body: String(err) };
   }
 };
-// ...existing code...
