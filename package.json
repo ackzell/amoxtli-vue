@@ -11,9 +11,7 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@tutorialkit/react": "1.5.2",
-    "@unocss/preset-typography": "0.59.4",
-    "@unocss/preset-web-fonts": "0.59.4",
+    "@tutorialkit/react": "1.6.0",
     "@xt0rted/expressive-code-file-icons": "^1.0.0",
     "dotenv": "^17.2.2",
     "react": "^18.3.1",
@@ -29,8 +27,8 @@
     "@netlify/functions": "^4.2.6",
     "@supabase/supabase-js": "^2.58.0",
     "@tutorialkit/astro": "1.6.0",
-    "@tutorialkit/theme": "1.5.2",
-    "@tutorialkit/types": "1.5.2",
+    "@tutorialkit/theme": "1.6.0",
+    "@tutorialkit/types": "1.6.0",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
     "astro": "^4.16.19",
@@ -38,6 +36,17 @@
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.2"
+    "rehype-external-links": "^3.0.0",
+    "typescript": "^5.9.2",
+    "unocss": "66.5.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@tutorialkit/astro": "file:../../oss/tutorialkit/packages/astro",
+      "@tutorialkit/react": "file:../../oss/tutorialkit/packages/react",
+      "@tutorialkit/runtime": "file:../../oss/tutorialkit/packages/runtime",
+      "@tutorialkit/theme": "file:../../oss/tutorialkit/packages/theme",
+      "@tutorialkit/types": "file:../../oss/tutorialkit/packages/types"
+    }
   }
 }

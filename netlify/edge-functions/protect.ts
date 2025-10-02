@@ -1,4 +1,3 @@
-// ...existing code...
 import { createClient } from '@supabase/supabase-js';
 
 export default async (request: Request) => {
@@ -42,12 +41,11 @@ export default async (request: Request) => {
 
   // Read all common env var names and fall back sensibly
   const SUPABASE_URL =
+    // @ts-ignore
     Deno.env.get('SUPABASE_URL') ?? Deno.env.get('PUBLIC_SUPABASE_URL') ?? '';
   const SUPABASE_KEY =
-    Deno.env.get('SUPABASE_KEY') ??
-    Deno.env.get('SUPABASE_ANON_KEY') ??
-    Deno.env.get('PUBLIC_SUPABASE_KEY') ??
-    '';
+    // @ts-ignore
+    Deno.env.get('SUPABASE_KEY') ?? Deno.env.get('PUBLIC_SUPABASE_KEY') ?? '';
 
   if (!SUPABASE_URL || !SUPABASE_KEY) {
     // Avoid crashing the edge function when env is missing — log and redirect to login.
@@ -83,4 +81,3 @@ export default async (request: Request) => {
     return Response.redirect(new URL('/login', request.url));
   }
 };
-// ...existing code...

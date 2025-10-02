@@ -6,6 +6,10 @@ slug: "context"
 
 # Context
 
-## TL; DR
-Ever since I started creating material to learn Vue, a few things have changed: new frameworks definitely came to live, but not at the same frenetic pace as they once were. Also, not all of them have made approached building UIs for the web fundamentally different (except maybe for Quick, but you can read about that on your own 😝), the rise of the metaframeworks has 
+Ever since I started creating material to learn Vue, a few things have changed: new frameworks came to live, but not at the same frenetic pace as they once were. Also, not all of them have approached building UIs for the web fundamentally differently (except maybe for [qwik](https://qwik.dev/), but you can read about that on your own 😝), the rise of the meta-frameworks that are built on top of frontend frameworks such as Vue, to enable developing features for web apps with more ease by providing for instance routing out of the box, more tooling and sometimes built-in opinions on architecture has been almost a natural evolution of the technology and they are now part of our every day lives. 
 
+But that's not the reason why you are here. So let's get to it and start learning some Vue.js, shall we?
+
+:::info
+You can check them out at their own websites: [Nuxt](https://nuxt.com/), [Next.js](https://nextjs.org/), [SvelteKit](https://svelte.dev/docs/kit/introduction), [SolidStart](https://start.solidjs.com/), and one which I am really curious about: [TanStackStart](https://tanstack.com/start/latest).
+:::
