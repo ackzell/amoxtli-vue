@@ -1,8 +1,27 @@
 <!doctype html>
 <html lang="en">
+  <style>
+    :root {
+      --hdr-gradient: radial-gradient(
+        farthest-corner circle at 0% 115% in oklch increasing hue,
+        oklch(60% 0.224 354) 12%,
+        14%,
+        oklch(15% 0.1 110) 51%
+      );
+      --sdr-gradient: radial-gradient(
+        farthest-corner circle at 0% 115%,
+        #dc2989 12%,
+        14%,
+        #171200 51%
+      );
+
+      background: var(--hdr-gradient);
+    }
+  </style>
+
   <body
-    class="bg-bgr text-[whitesmoke]
-    min-h-screen
+    class="text-[whitesmoke]
+    min-h-dvh
     flex flex-col items-center justify-center gap-4
     font-sans antialiased"
   >

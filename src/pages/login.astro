@@ -14,7 +14,12 @@ const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
   </head>
 
   <h1 class="h1">Welcome!</h1>
-  <button id="github-signin" class="sign-in-btn">Sign in with GitHub</button>
+  <button
+    id="github-signin"
+    class="sign-in-btn flex items-center justify-center gap-2"
+    >Sign in with GitHub <div class="i-carbon-logo-github w-5 h-5">
+    </div></button
+  >
 
   <script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';

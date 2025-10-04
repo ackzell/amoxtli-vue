@@ -39,8 +39,9 @@ export default defineConfig({
         900: 'oklch(37.9% 0.146 265.522)',
         950: 'oklch(28.2% 0.091 267.935)',
         // dark: 'oklch(0.1368 0.091 267.935)',
-        dark: 'oklch(0.1368 0.0548 267.935)',
+        dark: 'transparent',
       },
+      // tailwind emerald
       positive: {
         DEFAULT: 'oklch(69.6% 0.17 162.48)',
         50: 'oklch(97.9% 0.021 166.113)',
@@ -55,6 +56,7 @@ export default defineConfig({
         900: 'oklch(37.8% 0.077 168.94)',
         950: 'oklch(26.2% 0.051 172.552)',
       },
+      // tailwind amber
       warning: {
         DEFAULT: 'oklch(76.9% 0.188 70.08)',
         50: 'oklch(98.7% 0.022 95.277)',
@@ -69,6 +71,7 @@ export default defineConfig({
         900: 'oklch(41.4% 0.112 45.904)',
         950: 'oklch(27.9% 0.077 45.635)',
       },
+      // tailwind red
       negative: {
         DEFAULT: 'oklch(63.7% 0.237 25.331)',
         50: 'oklch(97.1% 0.013 17.38)',

@@ -41,6 +41,10 @@ code,
   }
 }
 
+#right-panel-group {
+  padding: 1.2rem;
+}
+
 /* styles for the plugin that adds icons to snippets */
 :root {
   .av-icon {
@@ -54,18 +58,16 @@ code,
   }
 }
 
-
 :root[data-theme='light'] {
   --amv-primary-text: hsl(210, 29%, 29%);
-  --amv-highlight: hsl(36, 76%, 45%);
+  --amv-highlight: oklch(0.77 0.14 70.23);
 
   --amv-info: oklch(62.3% 0.21 259);
   --amv-info-bg: oklch(0.92 0.0353 258.87);
 
-
   --background: whitesmoke;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(99.70% 0.0000 0);
+  --card: oklch(99.7% 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -100,14 +102,14 @@ code,
 
 :root[data-theme='dark'] {
   --amv-primary-text: oklch(0.8385 0.0263 248.14);
-  --amv-highlight: oklch(0.7343 0.1463 71.23);
-  --amv-highlight: oklch(0.5937 0.224 354.75);
+  --amv-highlight: oklch(0.77 0.14 70.23);
+  --amv-highlight: oklch(60% 0.224 354);
+  --amv-highlight-lighter: oklch(0.67 0.2 354);
 
   --amv-info: oklch(62.3% 0.21 259);
-  
 
-  --background: hsl(30, 10%, 8%);
-  /* --background: oklch(0.1946 0.0052 67.51); */
+  --background: oklch(15% 0.1 110);
+  --background: oklch(19% 0.01 0);
 
   --foreground: oklch(0.65 0 0);
   --card: oklch(0.22 0.0052 67.51);
@@ -140,6 +142,43 @@ code,
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    oklch(60% 0.224 354) 12%,
+    18%,
+    oklch(19% 0.01 0) 51%
+  );
+
+  --sdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122%,
+    #dc2989 12%,
+    18%,
+    #171200 51%
+  ); */
+
+  /* --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    var(--amv-highlight) 15%,
+    19%,
+    oklch(16% 0.1 110) 34%
+  );
+*/
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    var(--amv-highlight) 12%,
+    14%,
+    oklch(15% 0.1 110) 51%
+  );
+  --sdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122%,
+    #dc2989 12%,
+    14%,
+    #171200 51%
+  );
+
+  background: var(--hdr-gradient);
 }
 
 /* C/* Color Tokens Light */
@@ -228,7 +267,7 @@ code,
   --tk-background-positive: theme('colors.positive.950');
   --tk-background-warning: theme('colors.warning.950');
   --tk-background-negative: theme('colors.negative.950');
-  --tk-background-info: theme('colors.info.dark');
+  --tk-background-info: transparent;
   --tk-background-tip: theme('colors.tip.950');
 
   --tk-text-primary: var(
@@ -242,8 +281,8 @@ code,
   --tk-text-disabled: theme('colors.gray.600');
   --tk-text-body: var(--foreground);
   --tk-text-heading: var(--amv-highlight);
-  --tk-text-active: var(--amv-highlight);
-  --tk-text-accent: oklch(0.7254 0.224 354.75);
+  --tk-text-active: var(--amv-highlight-lighter);
+  --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
   --tk-text-negative: theme('colors.negative.400');
@@ -300,14 +339,14 @@ code,
  */
 :root {
   /* App */
-  --tk-elements-app-backgroundColor: var(--tk-background-primary);
+  --tk-elements-app-backgroundColor: transparent;
   --tk-elements-app-borderColor: var(--tk-border-primary);
   --tk-elements-app-textColor: var(--tk-text-primary);
 
   /* Links */
   /* --tk-elements-link-primaryColor: var(--tk-text-accent); */
-  --tk-elements-link-primaryColor: var(--tk-text-accent);
-  --tk-elements-link-primaryColorHover: var(--tk-text-primary-inverted)
+  --tk-elements-link-primaryColor: var(--amv-highlight-lighter);
+  --tk-elements-link-primaryColorHover: var(--amv-highlight);
   --tk-elements-link-secondaryColor: var(--tk-text-secondary);
   --tk-elements-link-secondaryColorHover: var(--tk-text-primary);
 
@@ -319,7 +358,7 @@ code,
     --tk-background-accent-active
   );
   --tk-elements-primaryButton-textColor: var(--tk-text-primary-inverted);
-  --tk-elements-primaryButton-textColorHover: var(--tk-text-primary-inverted);
+  --tk-elements-primaryButton-textColorHover: var(--amv-highlight);
   --tk-elements-primaryButton-iconColor: var(--tk-text-primary-inverted);
   --tk-elements-primaryButton-iconColorHover: var(--tk-text-primary-inverted);
 
