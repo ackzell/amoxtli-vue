@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useLocalStorage } from '@vueuse/core';
 
 const theme = useLocalStorage('tk_theme', 'light');
@@ -16,6 +16,13 @@ onMounted(() => {
   if (theme.value) {
     document.documentElement.setAttribute('data-theme', theme.value);
   }
+});
+
+watch(theme, () => {
+  const root = document.documentElement;
+  root.classList.remove('theme-ready');
+  // start fade-in just before base transition ends
+  setTimeout(() => root.classList.add('theme-ready'), 800);
 });
 </script>
 
