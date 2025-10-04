@@ -15,7 +15,10 @@ export default defineConfig({
     ],
   },
   integrations: [
-    vue(),
+    vue({
+      // devtools: true,
+      appEntrypoint: '/src/pages/_app',
+    }),
 
     tutorialkit({
       components: {

@@ -17,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--amv-primary-text) !important;
+  color: var(--tk-text-primary) !important;
   font-family: 'Space Mono';
 }
 
@@ -35,7 +35,7 @@ code,
     border-left: 4px solid var(--amv-highlight);
     padding-left: 1rem;
     margin-left: 0;
-    color: var(--amv-primary-text);
+    color: var(--tk-text-primary);
     opacity: 0.9;
     background-color: var(--card);
   }
@@ -56,16 +56,32 @@ code,
     display: flex;
     gap: 0.25rem;
   }
+
+  background: var(--hdr-gradient);
+}
+
+/* Header/background overlay for crossfading gradients on theme change */
+#hdr-bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* keep behind UI chrome, above the body background */
+  pointer-events: none;
+  background: transparent;
+  transition: opacity 420ms ease;
+}
+
+/* Ensure the page background uses the gradient variable */
+html, body {
+  background: var(--hdr-gradient);
 }
 
 :root[data-theme='light'] {
-  --amv-primary-text: hsl(210, 29%, 29%);
-  --amv-highlight: oklch(0.77 0.14 70.23);
+  --amv-highlight: oklch(77% 0.14 70);
 
   --amv-info: oklch(62.3% 0.21 259);
   --amv-info-bg: oklch(0.92 0.0353 258.87);
 
-  --background: whitesmoke;
+  --background: oklch(0.97 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(99.7% 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -98,11 +114,16 @@ code,
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle at 50% -40%in oklch decreasing hue,
+    var(--amv-highlight) 12%,
+    14%,
+    oklch(0.9702 0 0) 51%
+  );
 }
 
 :root[data-theme='dark'] {
-  --amv-primary-text: oklch(0.8385 0.0263 248.14);
-  --amv-highlight: oklch(0.77 0.14 70.23);
   --amv-highlight: oklch(60% 0.224 354);
   --amv-highlight-lighter: oklch(0.67 0.2 354);
 
@@ -177,8 +198,6 @@ code,
     14%,
     #171200 51%
   );
-
-  background: var(--hdr-gradient);
 }
 
 /* C/* Color Tokens Light */
@@ -198,13 +217,10 @@ code,
   --tk-background-info: theme('colors.info.250');
   --tk-background-tip: theme('colors.tip.100');
 
-  --tk-text-primary: var(
-    --amv-primary-text
-  ); /* Headings, refresh preview, lesson navigation button text  */
+  --tk-text-primary: oklch(40% 0.05 249);
+  /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
-  --tk-text-secondary: var(
-    --amv-primary-text
-  ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
+  --tk-text-secondary: oklch(0.64 0 none);
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.400');
   --tk-text-body: var(--foreground);
@@ -270,12 +286,12 @@ code,
   --tk-background-info: transparent;
   --tk-background-tip: theme('colors.tip.950');
 
-  --tk-text-primary: var(
-    --amv-primary-text
+  --tk-text-primary: oklch(
+    0.8385 0.0263 248.14
   ); /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
   --tk-text-secondary: var(
-    --amv-primary-text
+    --tk-text-primary
   ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.600');

@@ -1,23 +1,42 @@
+---
+import ThemeSwitcher from '@components/ThemeSwitcher.vue';
+---
+
 <!doctype html>
 <html lang="en">
-  <style>
-    :root {
-      --hdr-gradient: radial-gradient(
-        farthest-corner circle at 0% 115% in oklch increasing hue,
-        oklch(60% 0.224 354) 12%,
-        14%,
-        oklch(15% 0.1 110) 51%
-      );
-      --sdr-gradient: radial-gradient(
-        farthest-corner circle at 0% 115%,
-        #dc2989 12%,
-        14%,
-        #171200 51%
-      );
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      :root {
+        background: var(--hdr-gradient);
+      }
 
-      background: var(--hdr-gradient);
-    }
-  </style>
+      :root[data-theme='light'] {
+        --amv-highlight: oklch(0.77 0.14 70.23);
+        --tk-text-primary: oklch(40% 0.05 249);
+
+        --hdr-gradient: radial-gradient(
+          farthest-corner circle at 50% -19%in oklch decreasing hue,
+          var(--amv-highlight) 12%,
+          14%,
+          oklch(0.9702 0 0) 51%
+        );
+      }
+
+  :root[data-theme='dark'] {
+        --amv-highlight: oklch(0.77 0.14 70.23);
+        --tk-text-primary: oklch(0.8385 0.0263 248.14);
+
+        --hdr-gradient: radial-gradient(
+          farthest-corner circle at 0% 115% in oklch increasing hue,
+          oklch(60% 0.224 354) 12%,
+          14%,
+          oklch(15% 0.1 110) 51%
+        );
+      }
+    </style>
+  </head>
 
   <body
     class="text-[whitesmoke]
@@ -25,6 +44,63 @@
     flex flex-col items-center justify-center gap-4
     font-sans antialiased"
   >
+    <div class="position-fixed top-4 right-4">
+      <ThemeSwitcher client:load />
+    </div>
+    <!-- Header background overlay used for crossfading between gradients -->
+    <div id="hdr-bg-overlay" aria-hidden="true"></div>
+    <script type="module">
+      // Crossfade between previous and current --hdr-gradient when data-theme changes.
+      // Strategy: when the theme toggles, read computed --hdr-gradient, insert overlay
+      // with previous gradient, then set overlay to fade out so the new gradient shows.
+      const overlay = document.getElementById('hdr-bg-overlay');
+
+      // Basic overlay styles mirrored here to ensure available even before CSS loads
+      Object.assign(overlay.style, {
+        position: 'fixed',
+        inset: '0',
+        pointerEvents: 'none',
+        zIndex: '0',
+        transition: 'opacity 420ms ease',
+        opacity: '0',
+        background: 'transparent',
+      });
+
+      let lastGradient = getComputedStyle(document.documentElement).getPropertyValue('--hdr-gradient') || '';
+
+      const observer = new MutationObserver(mutations => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            const el = document.documentElement;
+            const newGradient = getComputedStyle(el).getPropertyValue('--hdr-gradient') || '';
+            if (!newGradient || newGradient === lastGradient) {
+              lastGradient = newGradient;
+              return;
+            }
+
+            // Show overlay with previous gradient
+            overlay.style.background = lastGradient.trim() || 'transparent';
+            overlay.style.opacity = '1';
+
+            // Force reflow then fade
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            overlay.offsetHeight;
+            requestAnimationFrame(() => {
+              overlay.style.transition = 'opacity 420ms ease';
+              overlay.style.opacity = '0';
+            });
+
+            // Update lastGradient after transition so subsequent changes continue to work
+            setTimeout(() => {
+              lastGradient = newGradient;
+              overlay.style.background = 'transparent';
+            }, 450);
+          }
+        }
+      });
+
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    </script>
     <slot />
   </body>
 </html>

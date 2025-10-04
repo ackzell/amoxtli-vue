@@ -22,7 +22,6 @@ export default defineConfig({
   theme: {
     colors: {
       bgr: 'hsl(30, 10%, 8%)',
-      'primary-text': 'oklch(0.8385 0.0263 248.14)',
       // tailwind blue
       info: {
         DEFAULT: 'oklch(62.3% 0.214 259.815)',
@@ -89,7 +88,7 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    h1: 'text-3xl font-bold font-mono text-primary-text',
+    h1: 'text-3xl font-bold font-mono text-[var(--tk-text-primary)]',
     'sign-in-btn': `px-4 py-2 font-sans
       bg-black text-light rounded
       hover:bg-dark-400 transition-bg duration-200

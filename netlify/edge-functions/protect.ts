@@ -13,6 +13,7 @@ export default async (request: Request) => {
     '/assets',
     '/favicon.ico',
     '/@vite', // Vite HMR client
+    '/@id', // astro/vite module id imports
     '/@', // other vite internal endpoints
     '/__uno.css',
     '/__vite',
@@ -27,6 +28,26 @@ export default async (request: Request) => {
     excludedPrefixes.some((p) => pathname === p || pathname.startsWith(p + '/'))
   ) {
     console.log('[protect edge] skipping auth for excluded path', pathname);
+    return;
+  }
+
+  const accept = request.headers.get('accept') || '';
+  const secFetchDest = request.headers.get('sec-fetch-dest') || '';
+  const referer = request.headers.get('referer') || '';
+  // If the request originates from the login page, don't interfere — let login's resources load.
+  if (referer.includes('/login')) {
+    console.log(
+      '[protect edge] request referred from /login, skipping auth for',
+      pathname
+    );
+    return;
+  }
+  if (!accept.includes('text/html') && secFetchDest !== 'document') {
+    console.log(
+      '[protect edge] non-navigation request, skipping auth for',
+      pathname,
+      { accept, secFetchDest }
+    );
     return;
   }
 
