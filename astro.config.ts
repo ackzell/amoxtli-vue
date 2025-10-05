@@ -16,7 +16,7 @@ export default defineConfig({
   },
   integrations: [
     vue({
-      // devtools: true,
+      devtools: true,
       appEntrypoint: '/src/pages/_app',
     }),
 

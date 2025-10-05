@@ -29,13 +29,14 @@ watch(theme, () => {
 <template>
   <div class="theme-switcher">
     <button
-      @click="toggleTheme"
+      class="sc-login-btn"
       v-tooltip.bottom-end="
         `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`
       "
+      @click="toggleTheme"
     >
       <div
-        class="w-4 h-4 text-dark dark:text-light"
+        class="w-4 h-4"
         :class="theme === 'dark' ? 'i-carbon-sun' : 'i-carbon-moon'"
       />
     </button>

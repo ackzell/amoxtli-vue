@@ -27,10 +27,10 @@ const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
         // Attempt to exchange the code returned by the OAuth provider
         let session = null;
         try {
-          const fromUrl = await supabase.auth.getSessionFromUrl();
+          const fromUrl = await supabase.auth.getSession();
           session = fromUrl?.data?.session ?? null;
         } catch (e) {
-          console.warn('getSessionFromUrl failed (will fallback):', e);
+          console.warn('getSession failed (will fallback):', e);
         }
 
         if (!session) {

@@ -89,10 +89,12 @@ export default defineConfig({
   },
   shortcuts: {
     h1: 'text-3xl font-bold font-mono text-[var(--tk-text-primary)]',
-    'sign-in-btn': `px-4 py-2 font-sans
+    'sc-sign-in-btn': `px-4 py-2 font-sans
       bg-black text-light rounded
-      hover:bg-dark-400 transition-bg duration-200
+      hover:bg-dark-400 duration-200
+      dark:bg-gray-300 dark:text-dark dark:hover:bg-light
       shadow-md hover:shadow-lg`,
+    // mimics the styles from tk's topbar buttons
     'top-bar-button': `flex items-center 
       text-2xl text-tk-elements-topBar-iconButton-iconColor 
       hover:text-tk-elements-topBar-iconButton-iconColorHover 
@@ -100,5 +102,15 @@ export default defineConfig({
       bg-tk-elements-topBar-iconButton-backgroundColor 
       hover:bg-tk-elements-topBar-iconButton-backgroundColorHover 
       p-1 rounded-md`,
+    'sc-login-btn': `text-dark dark:text-light cursor-pointer 
+      hover:text-foreground/80 hover:scale-120 
+      transition duration-200 
+      disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:scale-100 
+      active:scale-95`,
+    'sc-github-btn': `sc-sign-in-btn flex items-center justify-center 
+      gap-2 hover:-translate-y-0.5 
+      hover:scale-105 hover:shadow-2xl 
+      transition-all 
+      active:translate-y-0 active:scale-95 active:shadow-md`,
   },
 });
