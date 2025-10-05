@@ -6,7 +6,7 @@ const isLoggingIn = ref(false);
 
 async function loginWithGitHub() {
   isLoggingIn.value = true;
-  await supabaseClient?.auth.signInWithOAuth({
+  await supabaseClient.auth.signInWithOAuth({
     provider: 'github',
     options: { redirectTo: window.location.origin + '/auth/callback' },
   });

@@ -25,8 +25,6 @@ async function logout() {
   // @ts-ignore
   window.location.href = '/login';
 }
-
-onMounted(() => console.log('LogoutButton mounted'));
 </script>
 
 <template>
