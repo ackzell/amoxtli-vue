@@ -9,8 +9,7 @@ Same as with the original project, text based and "blog post" style content.
 ![Screenshot 1](docs/images/welcome.png)
 
 ## Video content
-So far there is no way to embed YouTube videos within a lesson. This would be a great enhancement to achieve the _multimedia_ goal. In the meantime, some prominent links can be added via a the `src/components/YouTubeLink.tsx` React component.
-![Screenshot 2](docs/images/video-link.png)
+We should be able to add video content. It can showcase interesting talks, particular concepts explained or even video content made explicitly as a resource to this project. eg. recorded sessions / video course.
 
 ## Interactive Playground
 Besides the obvious feature why to choose [TutorialKit](https://tutorialkit.dev/) for this project ([WebContainers](https://webcontainers.io/)) Vue itself also [has a REPL](https://github.com/vuejs/repl) that when placed in a _Preview_ pane can act as a perfect companion to allow "students" to get their hands on the framework immediately. This should be really good for the very basics, providing an environment with the "sample" code for each concept, but also providing a way for users to experiment on their own without distractions.
@@ -18,6 +17,41 @@ Besides the obvious feature why to choose [TutorialKit](https://tutorialkit.dev/
 
 > [!note]
 > The [`yehyecoa-vue`](https://github.com/ackzell/yehyecoa-vue/issues/1#issuecomment-3191337879) repo has more details on how this integration works.
+
+## On using Vue
+This project also employs the [Vue.js integration](https://docs.astro.build/en/guides/integrations-guide/vue/) for [Astro](https://docs.astro.build/en/guides/integrations-guide/), so you will find I sprinkled some custom components built in Vue.
+
+## Astro modifications
+Since tk is itself based on [astro](https://astro.build/), there are things we can do like adding a login to the project.
+Note that tk (as far as my understanding goes and after a couple days trying to figure it out) doesn't provide a way to protect the tutorial content behind a login on its own, in addition to that, the content will always be generated statically, which means we can't check for authorization on the content pages dynamically. So my solution thus far is to employ [Supabase Auth](https://supabase.com/auth) and [Netlify functions / edge functions ](https://docs.netlify.com/start/core-concepts/primitives) to protect the content.
+
+I think the code is self explanatory and it can be followed but the quick rundown is:
+* User logs in (currently only GitHub login is implemented)
+* Supabase authenticates the user
+* When reaching the redirect to `auth/callback` it sets a `sb_token` cookie on the user's browser
+* There are `/public` and `/protected` functions that are called "in order" (see [`netlify.toml`](./netlify.toml) file) and "direct" the traffic
+* If the user isn't logged in, the protected route will redirect the user straight to the login page
+* The TopBar.ts component has been [overridden](https://tutorialkit.dev/guides/overriding-components/) to also present a [logout button](./src/components/LogoutButton.vue) Vue component
+
+> [!Warning]
+> Right now, the only way to get tk running with the different modifications I made to the styles is by using my own fork of the library. I created [a PR](https://github.com/stackblitz/tutorialkit/pull/467) on the official repo, but given the current state of other contributions I am not entirely sure this will be merged soon. I will update this Readme if we are ever able to use more modern versions of UnoCSS directly.
+
+You will find in the package.json file that I have overrides such as:
+```json
+  "pnpm": {
+    "overrides": {
+      "@tutorialkit/astro": "file:../../oss/tutorialkit/packages/astro",
+      "@tutorialkit/react": "file:../../oss/tutorialkit/packages/react",
+      "@tutorialkit/runtime": "file:../../oss/tutorialkit/packages/runtime",
+      "@tutorialkit/theme": "file:../../oss/tutorialkit/packages/theme",
+      "@tutorialkit/types": "file:../../oss/tutorialkit/packages/types"
+    }
+  }
+```
+This means that I build tk locally to then install it (also locally) onto the `amoxtli-vue` project. 
+Deploys are done via [`netlify cli`](https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/) ( with `netlify deploy`) and this means that remote CI pipelines / merge to deploy are not quite working at this stage. I tried my best, but it would require some more work and I should be writing content instead of fighting that battle.
+
+I'll create a GH issue to fix this eventually.
 
 # Original Readme
 

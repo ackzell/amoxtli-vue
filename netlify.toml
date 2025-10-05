@@ -1,5 +1,34 @@
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Cross-Origin-Embedder-Policy = "require-corp"
-    Cross-Origin-Opener-Policy = "same-origin"
+for = "/*"
+
+[headers.values]
+Cross-Origin-Embedder-Policy = "require-corp"
+Cross-Origin-Opener-Policy = "same-origin"
+
+[build.environment]
+NODE_VERSION = "24.5.0"
+
+# Exclude login page
+[[edge_functions]]
+function = "public"
+path = "/login"
+
+# Exclude Supabase auth callback
+[[edge_functions]]
+function = "public"
+path = "/auth/callback"
+
+# Exclude static assets (adjust paths/extensions as needed)
+[[edge_functions]]
+function = "public"
+path = "/assets/*"
+
+# IMPORTANT: allow serverless functions used by the callback to run without auth
+[[edge_functions]]
+function = "public"
+path = "/.netlify/functions/*"
+
+# Protect everything else
+[[edge_functions]]
+function = "protect"
+path = "/*"

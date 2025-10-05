@@ -17,6 +17,7 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--tk-text-primary) !important;
   font-family: 'Space Mono';
 }
 
@@ -29,6 +30,19 @@ code,
 .markdown-content {
   max-width: 1024px;
   margin: auto;
+
+  blockquote {
+    border-left: 4px solid var(--amv-highlight);
+    padding-left: 1rem;
+    margin-left: 0;
+    color: var(--tk-text-primary);
+    opacity: 0.9;
+    background-color: var(--card);
+  }
+}
+
+#right-panel-group {
+  padding: 1.2rem;
 }
 
 /* styles for the plugin that adds icons to snippets */
@@ -42,16 +56,35 @@ code,
     display: flex;
     gap: 0.25rem;
   }
+
+  background: var(--hdr-gradient);
+}
+
+/* Header/background overlay for crossfading gradients on theme change */
+#hdr-bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* keep behind UI chrome, above the body background */
+  pointer-events: none;
+  background: transparent;
+  transition: opacity 420ms ease;
+}
+
+/* Ensure the page background uses the gradient variable */
+html,
+body {
+  background: var(--hdr-gradient);
 }
 
 :root[data-theme='light'] {
-  --amv-primary-text: hsl(210, 29%, 29%);
-  /* --amv-highlight: hsl(153,48%,49%); */
-  --amv-highlight: hsl(36, 76%, 45%);
+  --amv-highlight: oklch(77% 0.14 70);
 
-  --background: whitesmoke;
-  --foreground: oklch(0.145 0 0);
-  --card: #fefefe;
+  --amv-info: oklch(62.3% 0.21 259);
+  --amv-info-bg: oklch(0.92 0.0353 258.87);
+
+  --background: oklch(0.97 0 0);
+  --foreground: oklch(19% 0.01 0);
+  --card: oklch(99.7% 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -82,19 +115,26 @@ code,
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle at 50% -40%in oklch decreasing hue,
+    var(--amv-highlight) 12%,
+    14%,
+    oklch(0.9702 0 0) 51%
+  );
 }
 
 :root[data-theme='dark'] {
-  --amv-primary-text: hsl(210, 29%, 80%);
-  --amv-highlight: hsl(36, 76%, 52%);
-  --amv-highlight: hsl(328, 71%, 50%);
+  --amv-highlight: oklch(60% 0.224 354);
+  --amv-highlight-lighter: oklch(0.67 0.2 354);
 
-  --background: #0b0a09;
-  --background: oklch(0.145 0 0);
-  --background: hsl(30, 10%, 8%);
+  --amv-info: oklch(62.3% 0.21 259);
 
-  --foreground: #c9c9c9;
-  --card: #262626;
+  --background: oklch(15% 0.1 110);
+  --background: oklch(19% 0.01 0);
+
+  --foreground: oklch(0.77 0 0);
+  --card: oklch(0.22 0.0052 67.51);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -124,6 +164,41 @@ code,
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    oklch(60% 0.224 354) 12%,
+    18%,
+    oklch(19% 0.01 0) 51%
+  );
+
+  --sdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122%,
+    #dc2989 12%,
+    18%,
+    #171200 51%
+  ); */
+
+  /* --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    var(--amv-highlight) 15%,
+    19%,
+    oklch(16% 0.1 110) 34%
+  );
+*/
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    var(--amv-highlight) 12%,
+    14%,
+    oklch(15% 0.1 110) 51%
+  );
+  --sdr-gradient: radial-gradient(
+    farthest-corner circle at -5% 122%,
+    #dc2989 12%,
+    14%,
+    #171200 51%
+  );
 }
 
 /* C/* Color Tokens Light */
@@ -134,22 +209,19 @@ code,
   --tk-background-active: theme('colors.gray.100');
   --tk-background-active-secondary: theme('colors.gray.0');
   --tk-background-brighter: theme('colors.gray.0');
-  --tk-background-accent: theme('colors.accent.600');
+  --tk-background-accent: var(--amv-highlight);
   --tk-background-accent-secondary: theme('colors.accent.600');
   --tk-background-accent-active: theme('colors.accent.500');
   --tk-background-positive: theme('colors.positive.50');
   --tk-background-warning: theme('colors.warning.100');
   --tk-background-negative: theme('colors.negative.100');
-  --tk-background-info: theme('colors.info.100');
+  --tk-background-info: theme('colors.info.250');
   --tk-background-tip: theme('colors.tip.100');
 
-  --tk-text-primary: var(
-    --amv-primary-text
-  ); /* Headings, refresh preview, lesson navigation button text  */
+  --tk-text-primary: oklch(40% 0.05 249);
+  /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
-  --tk-text-secondary: var(
-    --amv-primary-text
-  ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
+  --tk-text-secondary: oklch(0.64 0 none);
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.400');
   --tk-text-body: var(--foreground);
@@ -206,42 +278,42 @@ code,
   --tk-background-secondary: var(--card);
   --tk-background-active-secondary: var(--background); /* terminal tab bg */
   --tk-background-brighter: var(--muted);
-  --tk-background-accent: tomato;
+  --tk-background-accent: var(--amv-highlight);
   --tk-background-accent-secondary: theme('colors.accent.400');
   --tk-background-accent-active: theme('colors.accent.300');
   --tk-background-positive: theme('colors.positive.950');
   --tk-background-warning: theme('colors.warning.950');
   --tk-background-negative: theme('colors.negative.950');
-  --tk-background-info: theme('colors.info.950');
+  --tk-background-info: transparent;
   --tk-background-tip: theme('colors.tip.950');
 
-  --tk-text-primary: var(
-    --amv-primary-text
+  --tk-text-primary: oklch(
+    0.8385 0.0263 248.14
   ); /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
   --tk-text-secondary: var(
-    --amv-primary-text
+    --tk-text-primary
   ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.600');
   --tk-text-body: var(--foreground);
   --tk-text-heading: var(--amv-highlight);
-  --tk-text-active: var(--amv-highlight);
+  --tk-text-active: var(--amv-highlight-lighter);
   --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
   --tk-text-negative: theme('colors.negative.400');
-  --tk-text-info: theme('colors.info.300');
+  --tk-text-info: theme('colors.info');
   --tk-text-tip: theme('colors.tip.400');
 
   --tk-border-primary: var(--border);
-  --tk-border-secondary: theme('colors.gray.800');
+  --tk-border-secondary: theme('colors.gray.900');
   --tk-border-brighter: theme('colors.gray.700');
   --tk-border-accent: var(--amv-highlight);
   --tk-border-positive: theme('colors.positive.400');
   --tk-border-warning: theme('colors.warning.400');
   --tk-border-negative: theme('colors.negative.500');
-  --tk-border-info: theme('colors.info.400');
+  --tk-border-info: theme('colors.info');
   --tk-border-tip: theme('colors.tip.500');
 
   /* Terminal Colors */
@@ -266,12 +338,14 @@ code,
   --tk-terminal-brightWhite: #f1f1f0;
 
   --tk-elements-panel-header-backgroundColor: var(--background);
-  --tk-elements-breadcrumbs-toggleButton-backgroundColor: hsl(30, 5%, 15%);
+  --tk-elements-breadcrumbs-toggleButton-backgroundColor: var(--card);
   --tk-elements-breadcrumbs-toggleButton-borderColor: hsl(30, 5%, 15%);
   --tk-elements-breadcrumbs-toggleButton-borderColorHover: var(--amv-highlight);
 
   .hover\:text-tk-elements-navCard-textColorHover:hover {
-    background-color: var(--background);
+    background-color: var(--card);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -282,13 +356,14 @@ code,
  */
 :root {
   /* App */
-  --tk-elements-app-backgroundColor: var(--tk-background-primary);
+  --tk-elements-app-backgroundColor: transparent;
   --tk-elements-app-borderColor: var(--tk-border-primary);
   --tk-elements-app-textColor: var(--tk-text-primary);
 
   /* Links */
-  --tk-elements-link-primaryColor: var(--tk-text-accent);
-  --tk-elements-link-primaryColorHover: unset;
+  /* --tk-elements-link-primaryColor: var(--tk-text-accent); */
+  --tk-elements-link-primaryColor: var(--amv-highlight-lighter);
+  --tk-elements-link-primaryColorHover: var(--amv-highlight);
   --tk-elements-link-secondaryColor: var(--tk-text-secondary);
   --tk-elements-link-secondaryColorHover: var(--tk-text-primary);
 
@@ -300,7 +375,7 @@ code,
     --tk-background-accent-active
   );
   --tk-elements-primaryButton-textColor: var(--tk-text-primary-inverted);
-  --tk-elements-primaryButton-textColorHover: var(--tk-text-primary-inverted);
+  --tk-elements-primaryButton-textColorHover: var(--amv-highlight);
   --tk-elements-primaryButton-iconColor: var(--tk-text-primary-inverted);
   --tk-elements-primaryButton-iconColorHover: var(--tk-text-primary-inverted);
 

@@ -1,0 +1,76 @@
+---
+import Layout from '@layouts/layout.astro';
+
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
+---
+
+<Layout>
+  <head>
+    <title>Auth callback</title>
+  </head>
+
+  <h1 class="h1">Bringing you in</h1>
+  <p id="msg" class="text-gray-500">Please wait...</p>
+
+  <script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
+    // runtime ESM import so browser can load in Netlify (no bundler mismatch)
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    // use the injected vars (not import.meta.env) so they exist in the browser
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    (async () => {
+      const msg = document.getElementById('msg');
+
+      try {
+        // Attempt to exchange the code returned by the OAuth provider
+        let session = null;
+        try {
+          const fromUrl = await supabase.auth.getSession();
+          session = fromUrl?.data?.session ?? null;
+        } catch (e) {
+          console.warn('getSession failed (will fallback):', e);
+        }
+
+        if (!session) {
+          const hash = window.location.hash || '';
+          const tokenMatch = hash.match(/access_token=([^&]+)/);
+          if (tokenMatch) {
+            session = { access_token: decodeURIComponent(tokenMatch[1]) };
+          }
+        }
+
+        if (!session?.access_token) {
+          console.warn('No session/token after exchange');
+          if (msg) {
+            msg.textContent = 'No session found';
+          }
+          return;
+        }
+
+        const res = await fetch('/.netlify/functions/set-cookie', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: session.access_token }),
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          console.error('set-cookie failed:', res.status, text);
+          if (msg) msg.textContent = 'Server error setting cookie';
+          return;
+        }
+
+        history.replaceState(null, '', '/');
+        window.location.replace('/');
+      } catch (err) {
+        console.error(err);
+        if (msg) {
+          msg.textContent = 'Error during sign-in';
+        }
+      }
+    })();
+  </script>
+</Layout>

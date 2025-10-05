@@ -1,0 +1,49 @@
+---
+import ThemeSwitcher from '@components/ThemeSwitcher.vue';
+import 'styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script>
+      const root = document.documentElement;
+
+      // 1️⃣ On first load, immediately set `theme-ready`
+      const theme = root.dataset.theme;
+      if (theme) {
+        root.classList.add('theme-ready');
+      }
+
+      // 2️⃣ Observe when the theme changes (ThemeSwitcher updates data-theme)
+      const observer = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            // Trigger the transition by removing and re-adding `.theme-ready`
+            root.classList.remove('theme-ready');
+            requestAnimationFrame(() => {
+              setTimeout(() => root.classList.add('theme-ready'), 900);
+            });
+          }
+        }
+      });
+
+      observer.observe(root, { attributes: true });
+    </script>
+  </head>
+
+  <body
+    class="text-[whitesmoke]
+    min-h-dvh
+    flex flex-col items-center justify-center gap-4
+    font-sans antialiased"
+  >
+    <div class="position-fixed top-4 right-4">
+      <ThemeSwitcher client:load />
+    </div>
+    <slot />
+  </body>
+</html>

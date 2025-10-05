@@ -1,14 +1,19 @@
 {
   "cSpell.words": [
     "amoxtli",
+    "credentialless",
+    "Embedder",
     "iconify",
     "mynaui",
+    "Supabase",
     "Tagify",
     "tutorialkit",
     "unocss",
+    "VITE",
+    "vueuse",
     "yehyecoa"
   ],
-  "workbench.colorTheme": "Monochrome Dark",
+  "workbench.colorTheme": "Monochrome Dark Amplified",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
     "tab.activeBorderTop": "#eff6ff",
@@ -36,6 +41,11 @@
       }
     ]
   },
-  "editor.formatOnSave": true
-  // "editor.bracketPairColorization.independentColorPoolPerBracketType": true
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.formatOnSave": true,
+  "deno.enable": true,
+  "deno.enablePaths": ["netlify/edge-functions"],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/Users/ackzell/Library/Preferences/netlify/deno-cli/deno"
 }

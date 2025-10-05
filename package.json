@@ -1,21 +1,23 @@
 {
-  "name": "vue-basics",
+  "name": "amoxtli-vue",
   "version": "0.0.1",
   "type": "module",
   "private": true,
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "dev": "astro dev",
+    "nd": "netlify dev",
     "preview": "astro preview",
-    "start": "astro dev"
+    "start": "astro dev",
+    "deploy": "netlify deploy --prod"
   },
   "dependencies": {
-    "@tutorialkit/react": "1.5.2",
-    "@unocss/preset-typography": "0.59.4",
-    "@unocss/preset-web-fonts": "0.59.4",
+    "@astrojs/netlify": "^6.5.11",
+    "@tutorialkit/react": "1.6.0",
     "@xt0rted/expressive-code-file-icons": "^1.0.0",
-    "astro-embed": "^0.9.0",
+    "dotenv": "^17.2.2",
+    "floating-vue": "^5.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vue": "^3.5.20"
@@ -23,17 +25,33 @@
   "devDependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/react": "^3.6.3",
-    "@astrojs/vue": "^5.1.0",
+    "@astrojs/vue": "^4.5.3",
     "@iconify-json/carbon": "^1.2.13",
     "@iconify-json/mynaui": "^1.2.16",
+    "@netlify/functions": "^4.2.6",
+    "@supabase/supabase-js": "^2.58.0",
     "@tutorialkit/astro": "1.6.0",
-    "@tutorialkit/theme": "1.5.2",
-    "@tutorialkit/types": "1.5.2",
+    "@tutorialkit/theme": "1.6.0",
+    "@tutorialkit/types": "1.6.0",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
+    "@vueuse/core": "^13.9.0",
     "astro": "^4.16.19",
     "astro-expressive-code": "0.35.6",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.2"
+    "rehype-external-links": "^3.0.0",
+    "typescript": "^5.9.2",
+    "unocss": "66.5.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@tutorialkit/astro": "file:../../oss/tutorialkit/packages/astro",
+      "@tutorialkit/react": "file:../../oss/tutorialkit/packages/react",
+      "@tutorialkit/runtime": "file:../../oss/tutorialkit/packages/runtime",
+      "@tutorialkit/theme": "file:../../oss/tutorialkit/packages/theme",
+      "@tutorialkit/types": "file:../../oss/tutorialkit/packages/types"
+    }
   }
 }

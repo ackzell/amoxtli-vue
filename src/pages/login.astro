@@ -1,0 +1,19 @@
+---
+import GitHubLoginButton from '@components/GitHubLoginButton.vue';
+import Layout from '@layouts/layout.astro';
+
+// src/pages/signin.astro
+const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
+---
+
+<Layout>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+
+  <h1 class="h1">Welcome!</h1>
+  <GitHubLoginButton client:load />
+</Layout>

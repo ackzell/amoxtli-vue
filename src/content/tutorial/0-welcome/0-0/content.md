@@ -2,6 +2,11 @@
 type: lesson
 title: "Welcome aboard!"
 slug: "welcome-aboard"
+meta: 
+    description: "this is a description"
+custom:
+  publishedAt: 2024-16-10
+  tags: tutorialkit,astro,vite
 ---
 
 # Hello there!
