@@ -27,9 +27,19 @@ code,
   font-family: 'Ubuntu Mono' !important;
 }
 
-.markdown-content {
+header {
+  width: 100%;
   max-width: 1024px;
   margin: auto;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.markdown-content,
+.markdown-content + div {
+  max-width: 1024px;
+  margin: auto;
+  width: 100%;
+  padding: 1rem;
 
   blockquote {
     border-left: 4px solid var(--amv-highlight);
@@ -42,7 +52,12 @@ code,
 }
 
 #right-panel-group {
+  backdrop-filter: blur(3px);
   padding: 1.2rem;
+}
+
+view-toggle {
+  border-top: none;
 }
 
 /* styles for the plugin that adds icons to snippets */
@@ -132,9 +147,10 @@ body {
 
   --background: oklch(15% 0.1 110);
   --background: oklch(19% 0.01 0);
+  --background: oklch(0.1928 0.0051 67.52);
 
   --foreground: oklch(0.77 0 0);
-  --card: oklch(0.22 0.0052 67.51);
+  --card: oklch(15% 0.01 106);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -266,10 +282,6 @@ body {
   --tk-terminal-brightMagenta: #bc05bc;
   --tk-terminal-brightCyan: #0598bc;
   --tk-terminal-brightWhite: #a5a5a5;
-
-  .hover\:text-tk-elements-navCard-textColorHover:hover {
-    background-color: var(--card);
-  }
 }
 
 /* Color Tokens Dark */
@@ -341,12 +353,6 @@ body {
   --tk-elements-breadcrumbs-toggleButton-backgroundColor: var(--card);
   --tk-elements-breadcrumbs-toggleButton-borderColor: hsl(30, 5%, 15%);
   --tk-elements-breadcrumbs-toggleButton-borderColorHover: var(--amv-highlight);
-
-  .hover\:text-tk-elements-navCard-textColorHover:hover {
-    background-color: var(--card);
-    transform: scale(1.02);
-    transition: all 0.2s ease-in-out;
-  }
 }
 
 /*
@@ -355,6 +361,12 @@ body {
  * Hierarchy: Element Token -> (Element Token | Color Tokens) -> Primitives
  */
 :root {
+  .hover\:text-tk-elements-navCard-textColorHover:hover {
+    background-color: var(--card);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
   /* App */
   --tk-elements-app-backgroundColor: transparent;
   --tk-elements-app-borderColor: var(--tk-border-primary);

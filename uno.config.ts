@@ -22,6 +22,8 @@ export default defineConfig({
   theme: {
     colors: {
       bgr: 'hsl(30, 10%, 8%)',
+      highlight: 'oklch(77% 0.14 70)',
+      highlightDark: 'oklch(60% 0.224 354)',
       // tailwind blue
       info: {
         DEFAULT: 'oklch(62.3% 0.214 259.815)',
@@ -101,9 +103,10 @@ export default defineConfig({
       transition-theme 
       bg-tk-elements-topBar-iconButton-backgroundColor 
       hover:bg-tk-elements-topBar-iconButton-backgroundColorHover 
-      p-1 rounded-md`,
+      p-1 rounded-md
+      disabled:cursor-not-allowed disabled:opacity-45`,
     'sc-login-btn': `text-dark dark:text-light cursor-pointer 
-      hover:text-foreground/80 hover:scale-120 
+       hover:scale-120 
       transition duration-200 
       disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:scale-100 
       active:scale-95`,

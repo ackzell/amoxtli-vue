@@ -34,6 +34,7 @@ export default function YouTubeEmbed(props: VideoEmbedProps) {
           width: '100%',
           maxWidth: '560px',
           height: '315px',
+          margin: '1rem auto'
         }}
       />
     );
