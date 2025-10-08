@@ -111,9 +111,12 @@ export default defineConfig({
       disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:scale-100 
       active:scale-95`,
     'sc-github-btn': `sc-sign-in-btn flex items-center justify-center 
-      gap-2 hover:-translate-y-0.5 
-      hover:scale-105 hover:shadow-2xl 
+      gap-2
+      hover:scale-102 hover:shadow-2xl 
       transition-all 
-      active:translate-y-0 active:scale-95 active:shadow-md`,
+      active:scale-99 active:shadow-md`,
+    'sc-custom-tooltip': `bg-[var(--background)]/80! backdrop-blur-lg! 
+      rounded-xl! p-2 text-sm shadow-md] z-10!
+      `,
   },
 });

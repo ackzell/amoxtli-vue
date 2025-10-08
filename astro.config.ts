@@ -2,6 +2,8 @@ import vue from '@astrojs/vue';
 import tutorialkit from '@tutorialkit/astro';
 import { pluginFileIcons } from '@xt0rted/expressive-code-file-icons';
 import { defineConfig } from 'astro/config';
+import rehypeExternalLinks from 'rehype-external-links';
+
 export default defineConfig({
   devToolbar: {
     enabled: false,
@@ -9,7 +11,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [
       [
-        'rehype-external-links',
+        rehypeExternalLinks,
         { target: '_blank', rel: ['noopener', 'noreferrer'] },
       ],
     ],

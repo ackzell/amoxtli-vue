@@ -79,6 +79,19 @@ view-toggle {
   background: var(--hdr-gradient);
 }
 
+/* styles for react-tooltip */
+:root {
+  --rt-color-white: #fff;
+  --rt-color-dark: #222;
+  --rt-color-success: #8dc572;
+  --rt-color-error: #be6464;
+  --rt-color-warning: #f0ad4e;
+  --rt-color-info: #337ab7;
+  --rt-opacity: 0;
+  --rt-transition-show-delay: 0.15s;
+  --rt-transition-closing-delay: 0.15s;
+}
+
 /* Header/background overlay for crossfading gradients on theme change */
 #hdr-bg-overlay {
   position: fixed;
@@ -97,6 +110,7 @@ body {
 
 :root[data-theme='light'] {
   --amv-highlight: oklch(77% 0.14 70);
+  --amv-highlight-link: oklch(0.68 0.1397 65.41);
 
   --amv-info: oklch(62.3% 0.21 259);
   --amv-info-bg: oklch(0.92 0.0353 258.87);
@@ -145,7 +159,7 @@ body {
 
 :root[data-theme='dark'] {
   --amv-highlight: oklch(60% 0.224 354);
-  --amv-highlight-lighter: oklch(0.67 0.2 354);
+  --amv-highlight-link: oklch(0.67 0.2 354);
 
   --amv-info: oklch(62.3% 0.21 259);
 
@@ -314,7 +328,7 @@ body {
   --tk-text-disabled: theme('colors.gray.600');
   --tk-text-body: var(--foreground);
   --tk-text-heading: var(--amv-highlight);
-  --tk-text-active: var(--amv-highlight-lighter);
+  --tk-text-active: var(--amv-highlight-link);
   --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
@@ -378,7 +392,7 @@ body {
 
   /* Links */
   /* --tk-elements-link-primaryColor: var(--tk-text-accent); */
-  --tk-elements-link-primaryColor: var(--amv-highlight-lighter);
+  --tk-elements-link-primaryColor: var(--amv-highlight-link);
   --tk-elements-link-primaryColorHover: var(--amv-highlight);
   --tk-elements-link-secondaryColor: var(--tk-text-secondary);
   --tk-elements-link-secondaryColorHover: var(--tk-text-primary);
