@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { createPortal } from 'react-dom';
 
 export { AvTooltip, AvTooltipContent };
 
@@ -27,9 +28,36 @@ type AvTooltipContentProps = {
 };
 
 function AvTooltipContent(props: AvTooltipContentProps) {
-  console.log('uhhhh what?', props);
+  const [mounted, setMounted] = useState(false);
+  const [container, setContainer] = useState<HTMLElement | null>(null);
 
-  return (
+  useEffect(() => {
+    // Guard for SSR: only run in browser
+    if (typeof document === 'undefined') return;
+
+    const el = document.createElement('div');
+    el.className = `av-tooltip-portal av-tooltip-portal-${props.id}`;
+    const tutorialKitContainer = document.querySelector('[data-id="main"]');
+    if (tutorialKitContainer) {
+      tutorialKitContainer.appendChild(el);
+    } else {
+      console.warn('[AVTooltip]: appending to body');
+      document.body.appendChild(el);
+    }
+    setContainer(el);
+    setMounted(true);
+
+    return () => {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      setMounted(false);
+      setContainer(null);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!mounted || !container) return null;
+
+  return createPortal(
     <Tooltip
       key={props.id}
       id={props.id}
@@ -37,12 +65,11 @@ function AvTooltipContent(props: AvTooltipContentProps) {
       float
       className="sc-custom-tooltip"
       border="1px solid var(--amv-highlight)"
-      isOpen
-      // disableStyleInjection
     >
       <div className="w-auto max-w-sm md:max-w-lg p-1 bg-white/90 dark:bg-bgr/90 text-neutral">
         {props.children}
       </div>
-    </Tooltip>
+    </Tooltip>,
+    container
   );
 }

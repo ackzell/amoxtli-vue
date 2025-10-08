@@ -36,6 +36,7 @@
     "@tutorialkit/types": "1.6.0",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
+    "@types/react-dom": "^19.2.1",
     "@vueuse/core": "^13.9.0",
     "astro": "^4.16.19",
     "astro-expressive-code": "0.41.3",

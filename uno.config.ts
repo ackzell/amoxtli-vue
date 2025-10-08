@@ -116,7 +116,7 @@ export default defineConfig({
       transition-all 
       active:scale-99 active:shadow-md`,
     'sc-custom-tooltip': `bg-[var(--background)]/80! backdrop-blur-lg! 
-      rounded-xl! p-2 text-sm shadow-md] z-10!
+      rounded-xl! p-2 text-sm shadow-md] z-20!
       `,
   },
 });

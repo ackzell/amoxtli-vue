@@ -801,3 +801,120 @@ body {
     --tk-background-secondary
   );
 }
+
+// BROUGHT IN FROM TK
+// MAYBE BEST TO IMPLEMENT THE TOOLTIPS DIRECTLY IN TK IN THE FUTURE?
+
+.av-tooltip-portal .callout {
+  --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
+}
+
+.av-tooltip-portal .callout-tip {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-tip-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-tip-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-tip-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-tip-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-tip-iconColor
+  );
+  --code-background-color: var(--tk-elements-callouts-tip-codeBackgroundColor);
+  --code-color: var(--tk-elements-callouts-tip-codeColor);
+}
+
+.av-tooltip-portal .callout-info {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-info-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-info-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-info-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-info-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-info-iconColor
+  );
+  --code-background-color: var(--tk-elements-callouts-info-codeBackgroundColor);
+  --code-color: var(--tk-elements-callouts-info-codeColor);
+}
+
+.av-tooltip-portal .callout-warn {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-warning-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-warning-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-warning-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-warning-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-warning-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-warning-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-warning-codeColor);
+}
+
+.av-tooltip-portal .callout-danger {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-danger-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-danger-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-danger-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-danger-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-danger-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-danger-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-danger-codeColor);
+}
+
+.av-tooltip-portal .callout-success {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-success-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-success-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-success-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-success-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-success-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-success-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-success-codeColor);
+}
+
+.av-tooltip-portal .callout a:has(> code):not(:hover) {
+  color: var(--code-color);
+}
