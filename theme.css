@@ -51,6 +51,10 @@ header {
   }
 }
 
+.callout {
+  margin: 0;
+}
+
 #right-panel-group {
   backdrop-filter: blur(3px);
   padding: 1.2rem;
