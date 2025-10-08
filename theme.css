@@ -809,6 +809,32 @@ body {
   --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
 }
 
+:root[data-theme='dark'] {
+  .av-tooltip-portal .callout a {
+    color: var(--amv-highlight-link);
+    text-decoration: underline;
+  }
+
+  .av-tooltip-portal .callout a:hover {
+    color: var(--amv-highlight);
+    text-decoration: underline;
+  }
+}
+
+:root[data-theme='light'] {
+  .av-tooltip-portal .callout a {
+    color: var(--amv-highlight-link);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .av-tooltip-portal .callout a:hover {
+    color: var(--amv-highlight);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
 .av-tooltip-portal .callout-tip {
   --tk-elements-markdown-callouts-backgroundColor: var(
     --tk-elements-callouts-tip-backgroundColor
