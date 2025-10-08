@@ -67,7 +67,7 @@ function AvTooltipContent(props: AvTooltipContentProps) {
       border="1px solid var(--amv-highlight)"
       // isOpen // uncomment to work on the styles (it remains open)
     >
-      <div className="w-auto max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr/90 text-neutral">
+      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr/90 text-neutral">
         {props.children}
       </div>
     </Tooltip>,
