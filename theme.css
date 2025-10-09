@@ -810,6 +810,8 @@ body {
 }
 
 :root[data-theme='dark'] {
+  --background: oklch(15% 0.1 110);
+
   .av-tooltip-portal .callout a {
     color: var(--amv-highlight-link);
     text-decoration: underline;
@@ -822,6 +824,8 @@ body {
 }
 
 :root[data-theme='light'] {
+  --background: oklch(0.96 0.03 249);
+
   .av-tooltip-portal .callout a {
     color: var(--amv-highlight-link);
     font-weight: bold;
