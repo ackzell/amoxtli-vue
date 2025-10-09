@@ -88,7 +88,7 @@ function AvTooltipContent(props: { children: React.ReactNode }) {
       style={{ pointerEvents: 'auto' }}
       border="1px solid var(--amv-highlight-link)"
     >
-      <div className="w-auto max-w-sm sm:max-w-3xl p-1 bg-white/90 dark:bg-bgr/90 text-neutral">
+      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr/90">
         {props.children}
       </div>
     </Tooltip>
