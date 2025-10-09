@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
 import { createPortal } from 'react-dom';
+import 'react-tooltip/dist/react-tooltip.css';
 
 export { AvTooltip, AvTooltipContent };
 
@@ -28,49 +28,46 @@ type AvTooltipContentProps = {
 };
 
 function AvTooltipContent(props: AvTooltipContentProps) {
-  const [mounted, setMounted] = useState(false);
-  const [container, setContainer] = useState<HTMLElement | null>(null);
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
+    null
+  );
 
   useEffect(() => {
-    // Guard for SSR: only run in browser
-    if (typeof document === 'undefined') return;
+    // Create portal container
+    const container = document.createElement('div');
+    container.className = 'av-tooltip-portal';
+    container.style.cssText =
+      'position: fixed; z-index: 99999; pointer-events: none;';
 
-    const el = document.createElement('div');
-    el.className = `av-tooltip-portal av-tooltip-portal-${props.id}`;
-    const tutorialKitContainer = document.querySelector('[data-id="main"]');
-    if (tutorialKitContainer) {
-      tutorialKitContainer.appendChild(el);
-    } else {
-      console.warn('[AVTooltip]: appending to body');
-      document.body.appendChild(el);
-    }
-    setContainer(el);
-    setMounted(true);
+    // Try to append to TutorialKit's main container, fallback to body
+    const tutorialKitMain = document.querySelector('[data-id="main"]');
+    const parentElement = tutorialKitMain || document.body;
+
+    parentElement.appendChild(container);
+    setPortalContainer(container);
 
     return () => {
-      if (el.parentNode) el.parentNode.removeChild(el);
-      setMounted(false);
-      setContainer(null);
+      container.remove();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!mounted || !container) return null;
+  // Don't render until we have a portal container
+  if (!portalContainer) return null;
 
   return createPortal(
     <Tooltip
-      key={props.id}
       id={props.id}
       clickable
       float
       className="sc-custom-tooltip"
       border="1px solid var(--amv-highlight)"
-      // isOpen // uncomment to work on the styles (it remains open)
+      style={{ pointerEvents: 'auto' }}
+      disableStyleInjection={false}
     >
-      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr/90 text-neutral">
+      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-1 bg-white dark:bg-bgr text-neutral">
         {props.children}
       </div>
     </Tooltip>,
-    container
+    portalContainer
   );
 }

@@ -802,8 +802,8 @@ body {
   );
 }
 
-// BROUGHT IN FROM TK
-// MAYBE BEST TO IMPLEMENT THE TOOLTIPS DIRECTLY IN TK IN THE FUTURE?
+/* BROUGHT IN FROM TK
+ MAYBE BEST TO IMPLEMENT THE TOOLTIPS DIRECTLY IN TK IN THE FUTURE? */
 
 .av-tooltip-portal .callout {
   --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
