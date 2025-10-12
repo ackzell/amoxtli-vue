@@ -4,12 +4,13 @@ import { Tooltip } from 'react-tooltip';
 
 type AvTooltipProps = {
   children: React.ReactNode;
+  id: string;
 };
 
 function AvTooltip(props: AvTooltipProps) {
   return (
     <span
-      data-tooltip-id="lesson-tooltip"
+      data-tooltip-id={props.id}
       className="cursor-pointer underline decoration-dotted"
     >
       {props.children}
@@ -38,7 +39,7 @@ function injectStyles() {
   }
 }
 
-function AvTooltipContent(props: { children: React.ReactNode }) {
+function AvTooltipContent(props: { children: React.ReactNode; id: string }) {
   const [isClient, setIsClient] = useState(false);
   const [renderKey, setRenderKey] = useState(0);
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
@@ -81,7 +82,7 @@ function AvTooltipContent(props: { children: React.ReactNode }) {
   const tooltipContent = (
     <Tooltip
       key={renderKey}
-      id="lesson-tooltip"
+      id={props.id}
       clickable
       float
       className="sc-custom-tooltip"

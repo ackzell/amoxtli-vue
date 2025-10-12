@@ -1,0 +1,17 @@
+---
+type: lesson
+title: Import Maps
+slug: import-maps
+focus: /index.html
+---
+
+# Import maps
+
+The last thing we need to agree on: teaching the browser about the available modules.
+
+This is achieved by using another `script` tag with a [new type](https://caniuse.com/import-maps): `importmap`. 
+
+```file:/index.html showLineNumbers title="index.html" /type="importmap"/ {"New script tag":5-11} {"Now importing from 'vue'":15-16}
+```
+
+So

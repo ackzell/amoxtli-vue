@@ -25,7 +25,7 @@ export default defineConfig({
         DEFAULT: 'oklch(40% 0.05 249)',
 
         dark: {
-          // DEFAULT: 'whitesmoke',
+          DEFAULT: 'whitesmoke',
         },
       },
 

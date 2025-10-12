@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.5.11",
-    "@xt0rted/expressive-code-file-icons": "^1.0.0",
     "dotenv": "^17.2.2",
     "floating-vue": "^5.2.2",
     "react": "^18.3.1",
@@ -26,6 +25,7 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/react": "^3.6.3",
     "@astrojs/vue": "^4.5.3",
+    "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@iconify-json/carbon": "^1.2.13",
     "@iconify-json/mynaui": "^1.2.16",
     "@netlify/functions": "^4.2.6",
@@ -38,6 +38,7 @@
     "@types/react": "^18.3.24",
     "@types/react-dom": "^19.2.1",
     "@vueuse/core": "^13.9.0",
+    "@xt0rted/expressive-code-file-icons": "^1.0.0",
     "astro": "^4.16.19",
     "astro-expressive-code": "0.41.3",
     "cookie-parser": "^1.4.7",

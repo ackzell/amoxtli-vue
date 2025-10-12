@@ -18,9 +18,6 @@ importers:
       '@astrojs/netlify':
         specifier: ^6.5.11
         version: 6.5.11(@types/node@20.19.19)(astro@4.16.19(@types/node@20.19.19)(rollup@4.52.4)(typescript@5.9.3))(jiti@2.6.1)(rollup@4.52.4)(yaml@2.8.1)
-      '@xt0rted/expressive-code-file-icons':
-        specifier: ^1.0.0
-        version: 1.0.0
       dotenv:
         specifier: ^17.2.2
         version: 17.2.3
@@ -49,6 +46,9 @@ importers:
       '@astrojs/vue':
         specifier: ^4.5.3
         version: 4.5.3(@types/node@20.19.19)(astro@4.16.19(@types/node@20.19.19)(rollup@4.52.4)(typescript@5.9.3))(rollup@4.52.4)(vue@3.5.22(typescript@5.9.3))
+      '@expressive-code/plugin-collapsible-sections':
+        specifier: ^0.41.3
+        version: 0.41.3
       '@iconify-json/carbon':
         specifier: ^1.2.13
         version: 1.2.13
@@ -85,6 +85,9 @@ importers:
       '@vueuse/core':
         specifier: ^13.9.0
         version: 13.9.0(vue@3.5.22(typescript@5.9.3))
+      '@xt0rted/expressive-code-file-icons':
+        specifier: ^1.0.0
+        version: 1.0.0
       astro:
         specifier: ^4.16.19
         version: 4.16.19(@types/node@20.19.19)(rollup@4.52.4)(typescript@5.9.3)
@@ -752,6 +755,9 @@ packages:
 
   '@expressive-code/plugin-collapsible-sections@0.35.6':
     resolution: {integrity: sha512-PciZoBynxp3DCrK3dvcc/rxkj2HVbFxX992yqez1pircmPj0g1STySslkOBVMHh9COy6whJ4Mbq2k9DPV1A5/Q==}
+
+  '@expressive-code/plugin-collapsible-sections@0.41.3':
+    resolution: {integrity: sha512-cuHIN7Ipl7gUcaWFfsgy6G3wn0Svk8dQ6WKXNQha63BURbm7CSBhD6y9qFGeIOrxaJtvH4Pj3Xb4C2Ni0OVwYA==}
 
   '@expressive-code/plugin-frames@0.35.6':
     resolution: {integrity: sha512-CqjSWjDJ3wabMJZfL9ZAzH5UAGKg7KWsf1TBzr4xvUbZvWoBtLA/TboBML0U1Ls8h/4TRCIvR4VEb8dv5+QG3w==}
@@ -6379,6 +6385,10 @@ snapshots:
   '@expressive-code/plugin-collapsible-sections@0.35.6':
     dependencies:
       '@expressive-code/core': 0.35.6
+
+  '@expressive-code/plugin-collapsible-sections@0.41.3':
+    dependencies:
+      '@expressive-code/core': 0.41.3
 
   '@expressive-code/plugin-frames@0.35.6':
     dependencies:

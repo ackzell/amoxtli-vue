@@ -1,8 +1,24 @@
 ---
 type: lesson
 title: From a CDN
+slug: from-a-cdn
+focus: /index.html
 ---
+import { AvTooltip, AvTooltipContent } from '@/components/MyTooltip.tsx'
 
 # From a CDN
 
-Some text about using Vue from a CDN
+As an alternative, we can point the `<script src=` to a <AvTooltip id="cdn">CDN</AvTooltip>. In this case, [unpkg](https://unpkg.com/)
+
+Note that at this point we are letting the CDN give us the latest version, which depending on when you are reading this, might be different than the static file we used in the previous lesson.
+
+```file:/index.html showLineNumbers title="index.html" /https://unpkg.com/vue@3/dist/vue.global.js/
+```
+
+
+<AvTooltipContent client:only="react" id="cdn">
+:::info
+A Content Delivery Network. 
+Read more about them [here]( https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)
+:::
+</AvTooltipContent>

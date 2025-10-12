@@ -93,6 +93,7 @@ view-toggle {
   --av-link: theme('colors.primary.600');
   --av-link-hover: theme('colors.primary.400');
   --av-panel-backgroundColor: theme('colors.bgr.translucent');
+  --av-panel-textColor: theme('colors.text');
 
   --tk-background-primary: theme('colors.bgr');
   --tk-background-secondary: theme('colors.bgr.50');
@@ -120,7 +121,7 @@ view-toggle {
   ); /* "preview", "Preparing environment" */
   --tk-text-active: theme('colors.primary');
   --tk-text-accent: theme('colors.primary');
-  --tk-text-positive: theme('colors.positive.700');
+  --tk-text-positive: theme('colors.positive');
   --tk-text-warning: theme('colors.warning.600');
   --tk-text-negative: theme('colors.negative.600');
   --tk-text-info: theme('colors.info.800');
@@ -187,6 +188,7 @@ view-toggle {
   --av-link: theme('colors.primary.dark.200');
   --av-link-hover: theme('colors.primary.dark.400');
   --av-panel-backgroundColor: theme('colors.bgr.translucent.dark');
+  --av-panel-textColor: tomato;
 
   --tk-background-primary: theme('colors.bgr.900');
   --tk-background-active: theme('colors.bgr.700');
