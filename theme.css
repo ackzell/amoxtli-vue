@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 html,
 body {
@@ -42,12 +37,11 @@ header {
   padding: 1rem;
 
   blockquote {
-    border-left: 4px solid var(--amv-highlight);
+    border-left: 4px solid var(--av-primary);
     padding-left: 1rem;
     margin-left: 0;
     color: var(--tk-text-primary);
     opacity: 0.9;
-    background-color: var(--card);
   }
 }
 
@@ -57,7 +51,7 @@ header {
 
 #right-panel-group {
   backdrop-filter: blur(3px);
-  padding: 1.2rem;
+  /* padding: 1.2rem; */
 }
 
 view-toggle {
@@ -75,21 +69,6 @@ view-toggle {
     display: flex;
     gap: 0.25rem;
   }
-
-  background: var(--hdr-gradient);
-}
-
-/* styles for react-tooltip */
-:root {
-  --rt-color-white: #fff;
-  --rt-color-dark: #222;
-  --rt-color-success: #8dc572;
-  --rt-color-error: #be6464;
-  --rt-color-warning: #f0ad4e;
-  --rt-color-info: #337ab7;
-  --rt-opacity: 0;
-  --rt-transition-show-delay: 0.15s;
-  --rt-transition-closing-delay: 0.15s;
 }
 
 /* Header/background overlay for crossfading gradients on theme change */
@@ -102,148 +81,25 @@ view-toggle {
   transition: opacity 420ms ease;
 }
 
-/* Ensure the page background uses the gradient variable */
-html,
-body {
-  background: var(--hdr-gradient);
-}
-
-:root[data-theme='light'] {
-  --amv-highlight: oklch(77% 0.14 70);
-  --amv-highlight-link: oklch(0.68 0.1397 65.41);
-
-  --amv-info: oklch(62.3% 0.21 259);
-  --amv-info-bg: oklch(0.92 0.0353 258.87);
-
-  --background: oklch(0.97 0 0);
-  --foreground: oklch(19% 0.01 0);
-  --card: oklch(99.7% 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-
-  --hdr-gradient: radial-gradient(
-    farthest-corner circle at 50% -40%in oklch decreasing hue,
-    var(--amv-highlight) 12%,
-    14%,
-    oklch(0.9702 0 0) 51%
-  );
-}
-
-:root[data-theme='dark'] {
-  --amv-highlight: oklch(60% 0.224 354);
-  --amv-highlight-link: oklch(0.67 0.2 354);
-
-  --amv-info: oklch(62.3% 0.21 259);
-
-  --background: oklch(15% 0.1 110);
-  --background: oklch(19% 0.01 0);
-  --background: oklch(0.1928 0.0051 67.52);
-
-  --foreground: oklch(0.77 0 0);
-  --card: oklch(15% 0.01 106);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: hsl(30, 0%, 18%);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: hsl(30, 10%, 13%);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-
-  /* --hdr-gradient: radial-gradient(
-    farthest-corner circle at -5% 122% in oklch increasing hue,
-    oklch(60% 0.224 354) 12%,
-    18%,
-    oklch(19% 0.01 0) 51%
-  );
-
-  --sdr-gradient: radial-gradient(
-    farthest-corner circle at -5% 122%,
-    #dc2989 12%,
-    18%,
-    #171200 51%
-  ); */
-
-  /* --hdr-gradient: radial-gradient(
-    farthest-corner circle at -5% 122% in oklch increasing hue,
-    var(--amv-highlight) 15%,
-    19%,
-    oklch(16% 0.1 110) 34%
-  );
-*/
-
-  --hdr-gradient: radial-gradient(
-    farthest-corner circle at -5% 122% in oklch increasing hue,
-    var(--amv-highlight) 12%,
-    14%,
-    oklch(15% 0.1 110) 51%
-  );
-  --sdr-gradient: radial-gradient(
-    farthest-corner circle at -5% 122%,
-    #dc2989 12%,
-    14%,
-    #171200 51%
-  );
-}
-
 /* C/* Color Tokens Light */
 :root,
 :root[data-theme='light'] {
-  --tk-background-primary: var(--background);
-  --tk-background-secondary: var(--card);
-  --tk-background-active: theme('colors.gray.100');
+  /* These are specific to the amoxtli-vue app */
+  /* By having different values per theme, we can */
+  --av-primary: theme('colors.primary');
+  --av-card: theme('colors.bgr.50');
+  --av-terminal-bg: theme('colors.bgr.50');
+  --av-lessonTextColorSelected: theme('colors.primary');
+  --av-link: theme('colors.primary.600');
+  --av-link-hover: theme('colors.primary.400');
+  --av-panel-backgroundColor: theme('colors.bgr.translucent');
+
+  --tk-background-primary: theme('colors.bgr');
+  --tk-background-secondary: theme('colors.bgr.50');
+  --tk-background-active: theme('colors.bgr.50');
   --tk-background-active-secondary: theme('colors.gray.0');
   --tk-background-brighter: theme('colors.gray.0');
-  --tk-background-accent: var(--amv-highlight);
+  --tk-background-accent: var(--av-primary);
   --tk-background-accent-secondary: theme('colors.accent.600');
   --tk-background-accent-active: theme('colors.accent.500');
   --tk-background-positive: theme('colors.positive.50');
@@ -252,18 +108,18 @@ body {
   --tk-background-info: theme('colors.info.250');
   --tk-background-tip: theme('colors.tip.100');
 
-  --tk-text-primary: oklch(40% 0.05 249);
+  --tk-text-primary: theme('colors.text');
   /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
   --tk-text-secondary: oklch(0.64 0 none);
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.400');
-  --tk-text-body: var(--foreground);
-  --tk-text-heading: var(
-    --amv-highlight
+  --tk-text-body: theme('colors.bgr.600');
+  --tk-text-heading: theme(
+    'colors.primary.600'
   ); /* "preview", "Preparing environment" */
-  --tk-text-active: var(--amv-highlight);
-  --tk-text-accent: var(--amv-highlight);
+  --tk-text-active: theme('colors.primary');
+  --tk-text-accent: theme('colors.primary');
   --tk-text-positive: theme('colors.positive.700');
   --tk-text-warning: theme('colors.warning.600');
   --tk-text-negative: theme('colors.negative.600');
@@ -273,7 +129,7 @@ body {
   --tk-border-primary: theme('colors.gray.200');
   --tk-border-secondary: theme('colors.gray.200');
   --tk-border-brighter: theme('colors.gray.300');
-  --tk-border-accent: var(--amv-highlight);
+  --tk-border-accent: theme('colors.primary');
   --tk-border-positive: theme('colors.positive.600');
   --tk-border-warning: theme('colors.warning.400');
   --tk-border-negative: theme('colors.negative.500');
@@ -300,16 +156,47 @@ body {
   --tk-terminal-brightMagenta: #bc05bc;
   --tk-terminal-brightCyan: #0598bc;
   --tk-terminal-brightWhite: #a5a5a5;
+
+  --tk-elements-editor-textColor: var(--tk-text-body);
+  --tk-elements-editor-backgroundColor: ##101010;
+  --tk-elements-editor-activeLineBackgroundColor: none;
+  --tk-elements-editor-activeLineBorder: 1px solid theme('colors.bgr.200');
+  --tk-elements-editor-cursorColor: theme('colors.primary.800');
+  --tk-elements-editor-matchingBracketBackgroundColor: theme('colors.bgr.200');
+  --tk-elements-editor-panels-borderColor: tomato;
+  --tk-elements-editor-selection-backgroundColor: theme('colors.bgr.100');
+  --tk-elements-editor-selection-backgroundOpacity: 1;
+  --tk-elements-editor-selection-inactiveBackgroundColor: theme(
+    'colors.bgr.100'
+  );
+  --tk-elements-editor-selection-inactiveBackgroundOpacity: 0.5;
+
+  --tk-elements-editor-gutter-textColor: theme('colors.bgr.200');
+  --tk-elements-editor-gutter-backgroundColor: var(
+    --tk-elements-editor-backgroundColor
+  );
+  --tk-elements-editor-gutter-activeLineTextColor: theme('colors.bgr.500');
 }
 
 /* Color Tokens Dark */
 :root[data-theme='dark'] {
-  --tk-background-primary: var(--background);
-  --tk-background-secondary: var(--card);
-  --tk-background-active-secondary: var(--background); /* terminal tab bg */
-  --tk-background-brighter: var(--muted);
-  --tk-background-accent: var(--amv-highlight);
-  --tk-background-accent-secondary: theme('colors.accent.400');
+  --av-primary: theme('colors.primary.dark');
+  --av-card: theme('colors.bgr.dark');
+  --av-terminal-bg: theme('colors.bgr.900');
+  --av-lessonTextColorSelected: theme('colors.primary.dark.400');
+  --av-link: theme('colors.primary.dark.200');
+  --av-link-hover: theme('colors.primary.dark.400');
+  --av-panel-backgroundColor: theme('colors.bgr.translucent.dark');
+
+  --tk-background-primary: theme('colors.bgr.900');
+  --tk-background-active: theme('colors.bgr.700');
+  --tk-background-secondary: theme('colors.bgr.dark');
+  --tk-background-active-secondary: theme(
+    'colors.bgr.900'
+  ); /* terminal tab bg */
+  --tk-background-brighter: theme('colors.bgr.800');
+  --tk-background-accent: theme('colors.primary.dark');
+  --tk-background-accent-secondary: theme('colors.primary.dark');
   --tk-background-accent-active: theme('colors.accent.300');
   --tk-background-positive: theme('colors.positive.950');
   --tk-background-warning: theme('colors.warning.950');
@@ -317,8 +204,8 @@ body {
   --tk-background-info: transparent;
   --tk-background-tip: theme('colors.tip.950');
 
-  --tk-text-primary: oklch(
-    0.8385 0.0263 248.14
+  --tk-text-primary: theme(
+    'colors.bgr.200'
   ); /* Headings, refresh preview, lesson navigation button text  */
   --tk-text-primary-inverted: tomato; /* no idea */
   --tk-text-secondary: var(
@@ -326,20 +213,20 @@ body {
   ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.600');
-  --tk-text-body: var(--foreground);
-  --tk-text-heading: var(--amv-highlight);
-  --tk-text-active: var(--amv-highlight-link);
-  --tk-text-accent: var(--amv-highlight);
+  --tk-text-body: theme('colors.bgr.400');
+  --tk-text-heading: theme('colors.primary.dark.300');
+  --tk-text-active: theme('colors.primary.dark.400');
+  --tk-text-accent: var(--av-primary);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
   --tk-text-negative: theme('colors.negative.400');
   --tk-text-info: theme('colors.info');
   --tk-text-tip: theme('colors.tip.400');
 
-  --tk-border-primary: var(--border);
-  --tk-border-secondary: theme('colors.gray.900');
-  --tk-border-brighter: theme('colors.gray.700');
-  --tk-border-accent: var(--amv-highlight);
+  --tk-border-primary: theme('colors.bgr.800');
+  --tk-border-secondary: theme('colors.bgr.700');
+  --tk-border-brighter: theme('colors.bgr.600');
+  --tk-border-accent: var(--av-primary);
   --tk-border-positive: theme('colors.positive.400');
   --tk-border-warning: theme('colors.warning.400');
   --tk-border-negative: theme('colors.negative.500');
@@ -370,7 +257,27 @@ body {
   --tk-elements-panel-header-backgroundColor: var(--background);
   --tk-elements-breadcrumbs-toggleButton-backgroundColor: var(--card);
   --tk-elements-breadcrumbs-toggleButton-borderColor: hsl(30, 5%, 15%);
-  --tk-elements-breadcrumbs-toggleButton-borderColorHover: var(--amv-highlight);
+  --tk-elements-breadcrumbs-toggleButton-borderColorHover: var(--av-primary);
+
+  --tk-elements-editor-textColor: var(--tk-text-body);
+  --tk-elements-editor-backgroundColor: #101010;
+  --tk-elements-editor-activeLineBackgroundColor: none;
+  --tk-elements-editor-activeLineBorder: 1px solid theme('colors.bgr.600');
+  --tk-elements-editor-cursorColor: theme('colors.primary.dark');
+  --tk-elements-editor-matchingBracketBackgroundColor: #515c6a;
+  --tk-elements-editor-panels-borderColor: tomato;
+  --tk-elements-editor-selection-backgroundColor: #ffffff25;
+  --tk-elements-editor-selection-backgroundOpacity: 1;
+  --tk-elements-editor-selection-inactiveBackgroundColor: theme(
+    'colors.bgr.800'
+  );
+  --tk-elements-editor-selection-inactiveBackgroundOpacity: 0.5;
+
+  --tk-elements-editor-gutter-textColor: theme('colors.bgr.700');
+  --tk-elements-editor-gutter-backgroundColor: var(
+    --tk-elements-editor-backgroundColor
+  );
+  --tk-elements-editor-gutter-activeLineTextColor: theme('colors.bgr.300');
 }
 
 /*
@@ -380,7 +287,7 @@ body {
  */
 :root {
   .hover\:text-tk-elements-navCard-textColorHover:hover {
-    background-color: var(--card);
+    background-color: var(--av-card);
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
   }
@@ -392,10 +299,10 @@ body {
 
   /* Links */
   /* --tk-elements-link-primaryColor: var(--tk-text-accent); */
-  --tk-elements-link-primaryColor: var(--amv-highlight-link);
-  --tk-elements-link-primaryColorHover: var(--amv-highlight);
-  --tk-elements-link-secondaryColor: var(--tk-text-secondary);
-  --tk-elements-link-secondaryColorHover: var(--tk-text-primary);
+  --tk-elements-link-primaryColor: var(--av-link);
+  --tk-elements-link-primaryColorHover: var(--av-link-hover);
+  /* --tk-elements-link-secondaryColor: var(--tk-text-secondary);
+  --tk-elements-link-secondaryColorHover: var(--tk-text-primary); */
 
   /* Primary Button */
   --tk-elements-primaryButton-backgroundColor: var(
@@ -405,7 +312,7 @@ body {
     --tk-background-accent-active
   );
   --tk-elements-primaryButton-textColor: var(--tk-text-primary-inverted);
-  --tk-elements-primaryButton-textColorHover: var(--amv-highlight);
+  --tk-elements-primaryButton-textColorHover: var(--av-primary);
   --tk-elements-primaryButton-iconColor: var(--tk-text-primary-inverted);
   --tk-elements-primaryButton-iconColorHover: var(--tk-text-primary-inverted);
 
@@ -452,7 +359,7 @@ body {
   --tk-elements-previews-borderColor: theme('colors.gray.200');
 
   /* Panel */
-  --tk-elements-panel-backgroundColor: var(--tk-elements-app-backgroundColor);
+  --tk-elements-panel-backgroundColor: var(--av-panel-backgroundColor);
   --tk-elements-panel-textColor: var(--tk-elements-app-textColor);
 
   /* Panel > Header */
@@ -505,9 +412,7 @@ body {
   --tk-elements-panel-headerTab-iconColorActive: var(--tk-text-active);
 
   /* File Tree */
-  --tk-elements-fileTree-backgroundColor: var(
-    --tk-elements-app-backgroundColor
-  );
+  --tk-elements-fileTree-backgroundColor: var(--card);
   --tk-elements-fileTree-backgroundColorHover: var(--tk-background-secondary);
   --tk-elements-fileTree-textColor: var(--tk-elements-app-textColor);
   --tk-elements-fileTree-textColorHover: var(--tk-elements-fileTree-textColor);
@@ -651,14 +556,14 @@ body {
     --tk-elements-breadcrumbs-dropdown-textColor
   );
   --tk-elements-breadcrumbs-dropdown-lessonTextColorSelected: var(
-    --tk-elements-breadcrumbs-dropdown-lessonTextColor
+    --av-lessonTextColorSelected
   );
   --tk-elements-breadcrumbs-dropdown-lessonTextColorHover: var(
     --tk-elements-breadcrumbs-dropdown-textColorHover
   );
 
   /* Terminal */
-  --tk-elements-terminal-backgroundColor: var(--background);
+  --tk-elements-terminal-backgroundColor: var(--av-terminal-bg);
   --tk-elements-terminal-textColor: var(--tk-terminal-foreground);
   --tk-elements-terminal-cursorColor: var(--tk-terminal-foreground);
   --tk-elements-terminal-selection-backgroundColor: var(
@@ -809,28 +714,14 @@ body {
   --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
 }
 
-:root[data-theme='dark'] {
+:root {
   .av-tooltip-portal .callout a {
-    color: var(--amv-highlight-link);
+    color: var(--av-link);
     text-decoration: underline;
   }
 
   .av-tooltip-portal .callout a:hover {
-    color: var(--amv-highlight);
-    text-decoration: underline;
-  }
-}
-
-:root[data-theme='light'] {
-  .av-tooltip-portal .callout a {
-    color: var(--amv-highlight-link);
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .av-tooltip-portal .callout a:hover {
-    color: var(--amv-highlight);
-    font-weight: bold;
+    color: var(--av-link-hover);
     text-decoration: underline;
   }
 }
@@ -943,4 +834,108 @@ body {
 
 .av-tooltip-portal .callout a:has(> code):not(:hover) {
   color: var(--code-color);
+}
+
+@property --hdr-color-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: oklch(0 0 0);
+}
+@property --hdr-color-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: oklch(0 0 0);
+}
+@property --hdr-color-3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: oklch(0 0 0);
+}
+@property --hdr-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 50%;
+}
+@property --hdr-y {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 50%;
+}
+
+:root {
+  transition: --hdr-color-1 1s ease, --hdr-color-2 1s ease,
+    --hdr-color-3 1s ease, --hdr-x 1s ease, --hdr-y 1s ease;
+
+  /* Intermediate animatable version */
+  background: radial-gradient(
+    farthest-corner circle at var(--hdr-x) var(--hdr-y) in oklch,
+    var(--hdr-color-1) 12%,
+    var(--hdr-color-2) 14%,
+    var(--hdr-color-3) 51%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* These pseudo-elements hold your “true” gradients */
+:root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  background: var(--hdr-gradient-final);
+}
+
+/* --- LIGHT THEME --- */
+:root[data-theme='light'] {
+  --amv-highlight: oklch(0.77 0.14 70.23);
+  --tk-text-primary: oklch(40% 0.05 249);
+
+  --hdr-color-1: var(--amv-highlight);
+  --hdr-color-2: oklch(0.9702 0 0);
+  --hdr-color-3: oklch(0.9702 0 0);
+  --hdr-x: 50%;
+  --hdr-y: -15%;
+
+  /* Your true gradient */
+  --hdr-gradient-final: radial-gradient(
+    farthest-corner circle at 50% -19% in oklch decreasing hue,
+    var(--amv-highlight) 12%,
+    14%,
+    oklch(0.9702 0 0) 51%
+  );
+}
+
+/* --- DARK THEME --- */
+:root[data-theme='dark'] {
+  --amv-highlight: oklch(0.77 0.14 70.23);
+  --tk-text-primary: oklch(0.8385 0.0263 248.14);
+
+  --hdr-color-1: oklch(60% 0.224 354);
+  --hdr-color-2: oklch(60% 0.224 354);
+  --hdr-color-3: oklch(15% 0.1 110);
+  --hdr-x: -5%;
+  --hdr-y: 122%;
+
+  /* Your true gradient */
+  --hdr-gradient-final: radial-gradient(
+    farthest-corner circle at -5% 122% in oklch increasing hue,
+    oklch(60% 0.224 354) 12%,
+    14%,
+    oklch(15% 0.1 110) 51%
+  );
+}
+
+/* --- When animation finishes, fade in the real gradient --- */
+:root[data-theme='dark'].theme-ready::after,
+:root[data-theme='light'].theme-ready::after {
+  opacity: 1;
+}
+
+body {
+  color: var(--tk-text-primary);
+  transition: color 0.4s ease;
 }

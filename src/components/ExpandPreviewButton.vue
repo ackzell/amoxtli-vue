@@ -38,7 +38,7 @@ watch(currentLocation, () => {
     :title="`${isSidePanelExpanded ? 'Collapse' : 'Expand'} Workspace`"
     type="button"
     class="top-bar-button"
-    :class="{ 'text-highlight dark:text-highlightDark': isSidePanelExpanded }"
+    :class="{ 'text-primary dark:text-primary-dark': isSidePanelExpanded }"
     :disabled="!sidePanel"
     @click="toggle"
   >
