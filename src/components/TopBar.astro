@@ -3,12 +3,28 @@ import ExpandPreviewButton from './ExpandPreviewButton.vue';
 import LogoutButton from './LogoutButton.vue';
 ---
 
+<script>
+  document.addEventListener('astro:after-swap', () => {
+    console.log('astro:after-swap event fired in TopBar');
+
+    const root = document.documentElement;
+
+    const theme = root.dataset.theme;
+
+    if (theme) {
+      root.classList.add('theme-ready');
+    }
+  });
+</script>
+
 <nav>
   <div
-    class="flex items-center justify-between h-auto max-w-full p-2 sm:h-full border-tk-elements-app-borderColor bg-tk-elements-topBar-backgroundColor transition-theme"
+    class="flex items-center justify-between h-auto max-w-full p-2 sm:h-full border-b border-tk-elements-app-borderColor bg-tk-elements-topBar-backgroundColor transition-theme"
   >
     <div class="flex-1 ml-2">
-      <div class="text-[var(--amv-highlight)] font-mono text-xl font-bold">
+      <div
+        class="text-primary dark:text-primary-dark font-mono text-xl font-bold"
+      >
         Amoxtli Vue
       </div>
       <div class="text-[var(--tk-text-primary)]/50 text-xs">

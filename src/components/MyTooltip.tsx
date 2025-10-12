@@ -13,7 +13,7 @@ function AvTooltip(props: AvTooltipProps) {
       className="cursor-pointer underline decoration-dotted"
     >
       {props.children}
-      <span className="text-highlight dark:text-highlightDark p-0 m-0">*</span>
+      <span className="text-primary dark:text-primary-dark p-0 m-0">*</span>
     </span>
   );
 }
@@ -86,9 +86,9 @@ function AvTooltipContent(props: { children: React.ReactNode }) {
       float
       className="sc-custom-tooltip"
       style={{ pointerEvents: 'auto' }}
-      border="1px solid var(--amv-highlight-link)"
+      border="1px solid var(--av-primary)"
     >
-      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr/90">
+      <div className="w-auto max-w-xs sm:max-w-sm md:max-w-lg p-0 bg-white dark:bg-bgr-dark/90">
         {props.children}
       </div>
     </Tooltip>
