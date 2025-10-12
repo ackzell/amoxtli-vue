@@ -19,6 +19,7 @@
     "floating-vue": "^5.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-tooltip": "^5.29.1",
     "vue": "^3.5.20"
   },
   "devDependencies": {
@@ -35,12 +36,14 @@
     "@tutorialkit/types": "1.6.0",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
+    "@types/react-dom": "^19.2.1",
     "@vueuse/core": "^13.9.0",
     "astro": "^4.16.19",
     "astro-expressive-code": "0.41.3",
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
     "prettier-plugin-astro": "^0.14.1",
+    "react-tooltip": "^5.29.1",
     "rehype-external-links": "^3.0.0",
     "typescript": "^5.9.2",
     "unocss": "66.5.2"

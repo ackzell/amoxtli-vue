@@ -16,22 +16,24 @@
   "workbench.colorTheme": "Monochrome Dark Amplified",
   "workbench.iconTheme": "symbols",
   "workbench.colorCustomizations": {
-    "tab.activeBorderTop": "#eff6ff",
-    "tab.inactiveForeground": "#5d5d5d",
-    "list.hoverBackground": "#ffffff1a",
-    "list.hoverForeground": "#f7f7f7",
+    "tab.activeBorderTop": "#bfdbff",
+    // "tab.inactiveForeground": "#5d5d5d",
+    // "list.hoverBackground": "#ffffff1a",
+    // "list.hoverForeground": "#f7f7f7",
     "list.focusBackground": "#ffffff1a",
     "list.focusForeground": "#f7f7f7",
     "list.activeSelectionBackground": "#ffffff1a",
     "list.activeSelectionForeground": "#f7f7f7",
-    "editorBracketHighlight.foreground1": "#DDDDDD",
+    "editorBracketHighlight.foreground1": "#00eeff",
     "editorBracketHighlight.foreground2": "#AAAAAA",
-    "editorBracketHighlight.foreground3": "#787878",
+    "editorBracketHighlight.foreground3": "#02a6ff",
     "editorBracketHighlight.unexpectedBracket.foreground": "#f7f7f7",
-    "editorIndentGuide.activeBackground1": "#656565"
+    "editorIndentGuide.activeBackground1": "#426366",
+    "editor.selectionBackground": "#ffffff22",
+    "editor.inactiveSelectionBackground": "#ffffff19"
   },
   "editor.tokenColorCustomizations": {
-    "comments": "#676767",
+    "comments": "#455767",
     "textMateRules": [
       {
         "scope": "comment",
@@ -41,7 +43,6 @@
       }
     ]
   },
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.formatOnSave": true,
   "deno.enable": true,
   "deno.enablePaths": ["netlify/edge-functions"],

@@ -12,13 +12,11 @@ import 'styles/global.css';
     <script>
       const root = document.documentElement;
 
-      // 1️⃣ On first load, immediately set `theme-ready`
       const theme = root.dataset.theme;
       if (theme) {
         root.classList.add('theme-ready');
       }
 
-      // 2️⃣ Observe when the theme changes (ThemeSwitcher updates data-theme)
       const observer = new MutationObserver((mutations) => {
         for (const m of mutations) {
           if (m.type === 'attributes' && m.attributeName === 'data-theme') {

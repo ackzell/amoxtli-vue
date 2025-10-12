@@ -51,6 +51,10 @@ header {
   }
 }
 
+.callout {
+  margin: 0;
+}
+
 #right-panel-group {
   backdrop-filter: blur(3px);
   padding: 1.2rem;
@@ -75,6 +79,19 @@ view-toggle {
   background: var(--hdr-gradient);
 }
 
+/* styles for react-tooltip */
+:root {
+  --rt-color-white: #fff;
+  --rt-color-dark: #222;
+  --rt-color-success: #8dc572;
+  --rt-color-error: #be6464;
+  --rt-color-warning: #f0ad4e;
+  --rt-color-info: #337ab7;
+  --rt-opacity: 0;
+  --rt-transition-show-delay: 0.15s;
+  --rt-transition-closing-delay: 0.15s;
+}
+
 /* Header/background overlay for crossfading gradients on theme change */
 #hdr-bg-overlay {
   position: fixed;
@@ -93,6 +110,7 @@ body {
 
 :root[data-theme='light'] {
   --amv-highlight: oklch(77% 0.14 70);
+  --amv-highlight-link: oklch(0.68 0.1397 65.41);
 
   --amv-info: oklch(62.3% 0.21 259);
   --amv-info-bg: oklch(0.92 0.0353 258.87);
@@ -141,7 +159,7 @@ body {
 
 :root[data-theme='dark'] {
   --amv-highlight: oklch(60% 0.224 354);
-  --amv-highlight-lighter: oklch(0.67 0.2 354);
+  --amv-highlight-link: oklch(0.67 0.2 354);
 
   --amv-info: oklch(62.3% 0.21 259);
 
@@ -310,7 +328,7 @@ body {
   --tk-text-disabled: theme('colors.gray.600');
   --tk-text-body: var(--foreground);
   --tk-text-heading: var(--amv-highlight);
-  --tk-text-active: var(--amv-highlight-lighter);
+  --tk-text-active: var(--amv-highlight-link);
   --tk-text-accent: var(--amv-highlight);
   --tk-text-positive: theme('colors.positive.300');
   --tk-text-warning: theme('colors.warning.300');
@@ -374,7 +392,7 @@ body {
 
   /* Links */
   /* --tk-elements-link-primaryColor: var(--tk-text-accent); */
-  --tk-elements-link-primaryColor: var(--amv-highlight-lighter);
+  --tk-elements-link-primaryColor: var(--amv-highlight-link);
   --tk-elements-link-primaryColorHover: var(--amv-highlight);
   --tk-elements-link-secondaryColor: var(--tk-text-secondary);
   --tk-elements-link-secondaryColorHover: var(--tk-text-primary);
@@ -782,4 +800,147 @@ body {
   --tk-elements-callouts-success-codeBackgroundColor: var(
     --tk-background-secondary
   );
+}
+
+/* BROUGHT IN FROM TK
+ MAYBE BEST TO IMPLEMENT THE TOOLTIPS DIRECTLY IN TK IN THE FUTURE? */
+
+.av-tooltip-portal .callout {
+  --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
+}
+
+:root[data-theme='dark'] {
+  .av-tooltip-portal .callout a {
+    color: var(--amv-highlight-link);
+    text-decoration: underline;
+  }
+
+  .av-tooltip-portal .callout a:hover {
+    color: var(--amv-highlight);
+    text-decoration: underline;
+  }
+}
+
+:root[data-theme='light'] {
+  .av-tooltip-portal .callout a {
+    color: var(--amv-highlight-link);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .av-tooltip-portal .callout a:hover {
+    color: var(--amv-highlight);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.av-tooltip-portal .callout-tip {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-tip-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-tip-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-tip-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-tip-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-tip-iconColor
+  );
+  --code-background-color: var(--tk-elements-callouts-tip-codeBackgroundColor);
+  --code-color: var(--tk-elements-callouts-tip-codeColor);
+}
+
+.av-tooltip-portal .callout-info {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-info-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-info-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-info-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-info-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-info-iconColor
+  );
+  --code-background-color: var(--tk-elements-callouts-info-codeBackgroundColor);
+  --code-color: var(--tk-elements-callouts-info-codeColor);
+}
+
+.av-tooltip-portal .callout-warn {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-warning-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-warning-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-warning-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-warning-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-warning-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-warning-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-warning-codeColor);
+}
+
+.av-tooltip-portal .callout-danger {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-danger-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-danger-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-danger-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-danger-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-danger-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-danger-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-danger-codeColor);
+}
+
+.av-tooltip-portal .callout-success {
+  --tk-elements-markdown-callouts-backgroundColor: var(
+    --tk-elements-callouts-success-backgroundColor
+  );
+  --tk-elements-markdown-callouts-textColor: var(
+    --tk-elements-callouts-success-textColor
+  );
+  --tk-elements-markdown-callouts-borderColor: var(
+    --tk-elements-callouts-success-borderColor
+  );
+  --tk-elements-markdown-callouts-titleTextColor: var(
+    --tk-elements-callouts-success-titleTextColor
+  );
+  --tk-elements-markdown-callouts-iconColor: var(
+    --tk-elements-callouts-success-iconColor
+  );
+  --code-background-color: var(
+    --tk-elements-callouts-success-codeBackgroundColor
+  );
+  --code-color: var(--tk-elements-callouts-success-codeColor);
+}
+
+.av-tooltip-portal .callout a:has(> code):not(:hover) {
+  color: var(--code-color);
 }
