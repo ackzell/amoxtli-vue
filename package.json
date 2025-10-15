@@ -13,7 +13,7 @@
     "deploy": "netlify deploy --prod"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.5.11",
+    "@astrojs/netlify": "^5.5.4",
     "dotenv": "^17.2.2",
     "floating-vue": "^5.2.2",
     "react": "^18.3.1",
@@ -36,7 +36,7 @@
     "@tutorialkit/types": "1.6.0",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
-    "@types/react-dom": "^19.2.1",
+    "@types/react-dom": "^18.3.1",
     "@vueuse/core": "^13.9.0",
     "@xt0rted/expressive-code-file-icons": "^1.0.0",
     "astro": "^4.16.19",

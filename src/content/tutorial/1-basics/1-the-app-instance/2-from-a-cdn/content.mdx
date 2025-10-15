@@ -4,11 +4,11 @@ title: From a CDN
 slug: from-a-cdn
 focus: /index.html
 ---
-import { AvTooltip, AvTooltipContent } from '@/components/MyTooltip.tsx'
+import { AvTooltipTrigger, AvTooltipContent } from '@components/AvTooltip';
 
 # From a CDN
 
-As an alternative, we can point the `<script src=` to a <AvTooltip id="cdn">CDN</AvTooltip>. In this case, [unpkg](https://unpkg.com/)
+As an alternative, we can point the `<script src=` to a <AvTooltipTrigger id="cdn">CDN</AvTooltipTrigger>. In this case, [unpkg](https://unpkg.com/)
 
 Note that at this point we are letting the CDN give us the latest version, which depending on when you are reading this, might be different than the static file we used in the previous lesson.
 
@@ -16,7 +16,7 @@ Note that at this point we are letting the CDN give us the latest version, which
 ```
 
 
-<AvTooltipContent client:only="react" id="cdn">
+<AvTooltipContent id="cdn">
 :::info
 A Content Delivery Network. 
 Read more about them [here]( https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)

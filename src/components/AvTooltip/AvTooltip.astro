@@ -1,0 +1,12 @@
+---
+import { AvTooltipContent as Content } from './MyTooltip';
+const { id } = Astro.props;
+---
+
+{
+  (
+    <Content client:only="react" id={id}>
+      <slot />
+    </Content>
+  )
+}

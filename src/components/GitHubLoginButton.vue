@@ -38,8 +38,8 @@ async function loginWithGitHub() {
       </svg>
     </div>
     <button v-else class="sc-github-btn" @click="loginWithGitHub">
+      <div class="i-carbon-logo-github w-5 h-5 mr-2"></div>
       Sign in with GitHub
-      <div class="i-carbon-logo-github w-5 h-5"></div>
     </button>
   </div>
 </template>

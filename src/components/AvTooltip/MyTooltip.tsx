@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Tooltip } from 'react-tooltip';
 
+export { AvTooltipTrigger, AvTooltipContent };
+
 type AvTooltipProps = {
   children: React.ReactNode;
   id: string;
 };
 
-function AvTooltip(props: AvTooltipProps) {
+function AvTooltipTrigger(props: AvTooltipProps) {
   return (
     <span
       data-tooltip-id={props.id}
@@ -47,37 +49,38 @@ function AvTooltipContent(props: { children: React.ReactNode; id: string }) {
   );
 
   useEffect(() => {
-    injectStyles();
-    setIsClient(true);
-    setRenderKey((prev) => prev + 1);
+    // Ensure this code runs only in the browser
+    if (typeof window !== 'undefined') {
+      injectStyles();
+      setIsClient(true);
+      setRenderKey((prev) => prev + 1);
 
-    // Create portal container
-    const container = document.createElement('div');
-    container.className = 'av-tooltip-portal';
-    container.style.cssText =
-      'position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;';
+      // Create portal container
+      const container = document.createElement('div');
+      container.className = 'av-tooltip-portal';
+      container.style.cssText =
+        'position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99;';
 
-    document.body.appendChild(container);
-    setPortalContainer(container);
+      document.body.appendChild(container);
+      setPortalContainer(container);
 
-    const handleAfterSwap = () => {
-      setIsClient(false);
-      requestAnimationFrame(() => {
-        injectStyles();
-        setRenderKey((prev) => prev + 1);
-        setIsClient(true);
-      });
-    };
+      const handleAfterSwap = () => {
+        setIsClient(false);
+        requestAnimationFrame(() => {
+          injectStyles();
+          setRenderKey((prev) => prev + 1);
+          setIsClient(true);
+        });
+      };
 
-    document.addEventListener('astro:after-swap', handleAfterSwap);
+      document.addEventListener('astro:after-swap', handleAfterSwap);
 
-    return () => {
-      document.removeEventListener('astro:after-swap', handleAfterSwap);
-      container.remove();
-    };
+      return () => {
+        document.removeEventListener('astro:after-swap', handleAfterSwap);
+        container.remove();
+      };
+    }
   }, []);
-
-  if (!isClient || !portalContainer) return null;
 
   const tooltipContent = (
     <Tooltip
@@ -95,7 +98,15 @@ function AvTooltipContent(props: { children: React.ReactNode; id: string }) {
     </Tooltip>
   );
 
+  // During SSR or before portal is ready, render a hidden placeholder
+  if (!isClient || !portalContainer) {
+    return (
+      <>
+        <span style={{ display: 'none' }} aria-hidden="true" />
+        {tooltipContent}
+      </>
+    );
+  }
+
   return createPortal(tooltipContent, portalContainer);
 }
-
-export { AvTooltip, AvTooltipContent };

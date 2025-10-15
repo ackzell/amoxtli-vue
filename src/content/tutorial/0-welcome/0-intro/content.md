@@ -1,9 +1,10 @@
 ---
 type: lesson
-title: "Welcome aboard!"
-slug: "welcome-aboard"
-meta: 
-    description: "this is a description"
+title: Welcome aboard!
+slug: welcome-aboard
+meta:
+    title: Welcome aboard!
+    description: Welcome to Amoxtli Vue!
 custom:
   publishedAt: 2024-16-10
   tags: tutorialkit,astro,vite

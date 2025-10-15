@@ -1,5 +1,4 @@
 import vue from '@astrojs/vue';
-import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 import tutorialkit from '@tutorialkit/astro';
 import { pluginFileIcons } from '@xt0rted/expressive-code-file-icons';
 import { defineConfig } from 'astro/config';
@@ -34,8 +33,6 @@ export default defineConfig({
           iconClass: 'av-icon',
           titleClass: 'av-title',
         }),
-        // @ts-ignore
-        pluginCollapsibleSections(),
       ],
     }),
   ],

@@ -107,6 +107,7 @@ const excludeFiles = [
   'favicon.ico',
   'lessonFile.vue',
   'server.js.gz',
+  'package-lock.json',
 ];
 
 const excludeFolders = [

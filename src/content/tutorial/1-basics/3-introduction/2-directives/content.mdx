@@ -3,13 +3,13 @@ type: lesson
 title: Directives
 slug: directives
 ---
-import { AvTooltip, AvTooltipContent } from '@/components/MyTooltip.tsx'
+import { AvTooltipTrigger, AvTooltipContent } from '@components/AvTooltip';
 
 # Directives
 
-In Vue, directives are special <AvTooltip id="some-id">tokens</AvTooltip> in the markup that tell the library to do something to a DOM element. They are prefixed with `v-` to indicate that they are Vue-specific attributes. Directives can be used to bind data to elements, conditionally render elements, loop through data, and more.
+In Vue, directives are special <AvTooltipTrigger id="some-id">tokens</AvTooltipTrigger> in the markup that tell the library to do something to a DOM element. They are prefixed with `v-` to indicate that they are Vue-specific attributes. Directives can be used to bind data to elements, conditionally render elements, loop through data, and more.
 
-<AvTooltipContent id="some-id" client:only="react" >
+<AvTooltipContent id="some-id" >
 :::info
 You can check out the full list of built-in directives in the [official Vue documentation](https://vuejs.org/guide/essentials/template-syntax.html#directives).
 :::

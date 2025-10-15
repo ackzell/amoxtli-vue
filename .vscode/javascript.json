@@ -1,0 +1,9 @@
+{
+  "Add AvTooltip Import": {
+    "prefix": "avt",
+    "body": [
+      "import { AvTooltipTrigger, AvTooltipContent } from '@components/AvTooltip';"
+    ],
+    "description": "Adds the AvTooltip import statement."
+  }
+}
