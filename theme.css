@@ -56,6 +56,13 @@ header {
   }
 }
 
+.markdown-content
+  :is(blockquote, p, ul, ol, table)
+  + :is(blockquote, p, ul, ol, table),
+.markdown-content :is(a, p) + :is(ul, ol) {
+  margin-block-start: 0;
+}
+
 .callout {
   margin: 0;
 }
@@ -227,7 +234,7 @@ view-toggle {
   ); /* powered by webcontainers, toggle terminal button, lessson arrow navs on top, switch theme button */
   --tk-text-secondary-inverted: rebeccapurple; /* no idea */
   --tk-text-disabled: theme('colors.gray.600');
-  --tk-text-body: theme('colors.bgr.400');
+  --tk-text-body: theme('colors.bgr.200');
   --tk-text-heading: theme('colors.primary.dark.300');
   --tk-text-active: theme('colors.primary.dark.400');
   --tk-text-accent: var(--av-primary);
@@ -721,6 +728,25 @@ view-toggle {
   --tk-elements-callouts-success-codeBackgroundColor: var(
     --tk-background-secondary
   );
+
+  /* Callouts > Challenge */
+  --tk-elements-callouts-challenge-backgroundColor: var(
+    --tk-background-secondary
+  );
+  --tk-elements-callouts-challenge-textColor: var(
+    --tk-elements-content-textColor
+  );
+  /* --tk-elements-callouts-challenge-borderColor: var(--tk-border-accent); */
+  --tk-elements-callouts-challenge-titleTextColor: var(
+    --tk-elements-callouts-challenge-borderColor
+  );
+  --tk-elements-callouts-challenge-iconColor: var(
+    --tk-elements-callouts-challenge-titleTextColor
+  );
+  --tk-elements-callouts-challenge-codeColor: var(--tk-text-primary);
+  --tk-elements-callouts-challenge-codeBackgroundColor: var(
+    --tk-background-secondary
+  );
 }
 
 /* BROUGHT IN FROM TK
@@ -846,6 +872,22 @@ view-toggle {
     --tk-elements-callouts-success-codeBackgroundColor
   );
   --code-color: var(--tk-elements-callouts-success-codeColor);
+}
+
+.av-tooltip-portal {
+  p {
+    color: var(--tk-text-primary);
+  }
+
+  blockquote {
+    border-left: 4px solid var(--av-primary);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--tk-text-primary);
+    opacity: 0.9;
+  }
 }
 
 .av-tooltip-portal .callout a:has(> code):not(:hover) {
