@@ -1,5 +1,6 @@
 ---
 import GitHubLoginButton from '@components/GitHubLoginButton.vue';
+import GoogleLoginButton from '@components/GoogleLoginButton.vue';
 import Layout from '@layouts/layout.astro';
 
 // src/pages/signin.astro
@@ -16,4 +17,5 @@ const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY;
 
   <h1 class="h1">Welcome!</h1>
   <GitHubLoginButton client:load />
+  <GoogleLoginButton client:load />
 </Layout>

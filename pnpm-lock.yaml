@@ -52,6 +52,9 @@ importers:
       '@iconify-json/carbon':
         specifier: ^1.2.13
         version: 1.2.13
+      '@iconify-json/logos':
+        specifier: ^1.2.9
+        version: 1.2.9
       '@iconify-json/mynaui':
         specifier: ^1.2.16
         version: 1.2.16
@@ -100,6 +103,9 @@ importers:
       express:
         specifier: ^5.1.0
         version: 5.1.0
+      logos:
+        specifier: link:@iconify/json/logos
+        version: link:@iconify/json/logos
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
@@ -803,6 +809,9 @@ packages:
 
   '@iconify-json/carbon@1.2.13':
     resolution: {integrity: sha512-vXrFFKkfYaZSwf4WfnRQJQMnpEzxlPlupwZZlS1WvOAuNnWahsUudHycaMpoBzDqBfniH4KQ2b5qnw0VMKoJug==}
+
+  '@iconify-json/logos@1.2.9':
+    resolution: {integrity: sha512-G6VCdFnwZcrT6Eveq3m43oJfLw/CX8plwFcE+2jgv3fiGB64pTmnU7Yd1MNZ/eA+/Re2iEDhuCfSNOWTHwwK8w==}
 
   '@iconify-json/mynaui@1.2.16':
     resolution: {integrity: sha512-SG50s+eHl+p19y+kntFTTt/erSiiBDgBIAMr9IxRSoOxwS9Sx06lFNDfa+RUAhEiKkjf4qBX3xK3lz8wiBhNBw==}
@@ -5781,6 +5790,10 @@ snapshots:
   '@floating-ui/utils@0.2.10': {}
 
   '@iconify-json/carbon@1.2.13':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/logos@1.2.9':
     dependencies:
       '@iconify/types': 2.0.0
 
