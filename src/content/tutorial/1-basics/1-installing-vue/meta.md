@@ -1,7 +1,7 @@
 ---
 type: chapter
-title: Chapter 1 - The App instance
-slug: the-app-instance
+title: Chapter 1 - Installing Vue
+slug: installing-vue
 mainCommand:
   - npm run server
   - Starting the server

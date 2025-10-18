@@ -1,0 +1,92 @@
+---
+type: lesson
+title: Starter Code Explained
+slug: sfc-starter-code-explained
+---
+import {AvTooltipTrigger, AvTooltipContent}  from '@/components/AvTooltip'
+import { ToggleLessonStateButton } from '@components/SolveLessonButton'
+
+# Starter Code Explained
+
+Here we go again. 
+
+Let's break down the starter code you found during this chapter.
+
+First of all, we are looking at the **Composition API** here. The <AvTooltipTrigger id="setup-hook">`setup()`</AvTooltipTrigger> method is the telltale.
+
+So far you've been introduced to one way of writing the app:
+
+```vue title=App.vue /setup\\(\\)/ {"The returned value will be available in the template":8-12} {"Note the double curly braces to print the value":18-19} {"Using plain CSS":25-28} 
+<script>
+import { ref, version } from 'vue';
+
+export default {
+  setup() {
+    const message = ref('Hola yehyecoa-vue!');
+    console.log('version:', version);
+
+    return {
+      message, // *reactive* variable
+      version, // exposing the value "as is"
+    };
+  },
+};
+</script>
+
+<template>
+
+  <h1>{{ message }}</h1>
+
+  Version is: <code>{{ version }}</code>
+</template>
+
+<style>
+
+h1 {
+  color: #42b983;
+}
+</style>
+```
+
+Another, **more commonly found in the wild** way of writing this is to leverage the `<script setup>` [sytactic sugar](https://vuejs.org/api/composition-api-setup.html#composition-api-setup) that the Vue compiler gives us. So the entire app can be written as:
+
+```vue
+<script setup>
+import { ref, version } from 'vue';
+
+const message = ref('Hola yehyecoa-vue script setup!');
+console.log('version:', version);
+</script>
+
+<template>
+  <h1>{{ message }}</h1>
+
+  Version is: <code>{{ version }}</code>
+</template>
+
+<style>
+h1 {
+  color: #42b983;
+}
+</style>
+
+```
+
+Go ahead, replace the code with this new syntax and you'll see it still works the same, I'll wait here 😁. 
+You can also click here and see it magically change: <ToggleLessonStateButton client:only="react"/>
+
+I like a lot the "less is more" feel to it.
+
+Since we have it available in `yehyecoa-vue` given that it *compiles the code* we write, that is the way we will be writing our code from now on.
+
+
+<AvTooltipContent id="setup-hook">
+:::info
+Particularly useful when:
+
+- Using Composition API without a build step;
+- Integrating with Composition-API-based code in an Options API component.
+
+There is more info about this on the [official docs](https://vuejs.org/api/composition-api-setup.html#composition-api-setup)
+:::
+</AvTooltipContent>
