@@ -9,10 +9,11 @@ meta:
 
 # Hello there!
 
+> **[ah-MOX-tlee](https://nahuatl.wired-humanities.org/content/amoxtli)** in Nahuatl means book. So this is the book of Vue.
+
 Welcome to this spiritual successor to [Notes on Vue](https://notes-on-vue.ackzell.dev). Fortunately, lots of the contents of that site are still somewhat relevant and I get to keep it online while exploring a more modern way of sharing knowledge about Vue.js with you through this new project of mine.
 
-From the original site: 
-> Allow me to introduce myself super quickly: I am [Axel Uriel Martínez Castillo](https://ackzell.dev), a software developer from 🇲🇽
+Allow me to introduce myself super quickly: I am [Axel Uriel Martínez Castillo](https://ackzell.dev), a software developer from 🇲🇽
 
 This project is aimed at being the contents of scheduled online workshops that I want to hold and if you are reading this is because you are in!
 

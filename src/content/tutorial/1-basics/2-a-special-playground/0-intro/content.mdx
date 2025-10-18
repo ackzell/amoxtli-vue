@@ -1,0 +1,39 @@
+---
+type: lesson
+title: Intro
+slug: playground-intro
+previews: false
+editor: false
+terminal: false
+---
+import { AvTooltipTrigger, AvTooltipContent} from '@/components/AvTooltip'
+
+# A special playground
+
+Let's take a really small detour and go a little meta here.
+
+You will find that for some of the lessons the UI of this Amoxtli Vue platform will change a little bit. The _editor_ panel is not present now and there is only a _preview_ titled `yehyecoa-vue`.
+
+> **[yeh-yeh-CO-ah](https://nahuatl.wired-humanities.org/content/yeyecoa)** in Nahuatl means to try something; to try or experiment with something; to rehearse;
+
+
+This is part of the secret sauce that I want to use for the material you are looking at. So, the preview itself is a Vue app that runs the [official REPL component](https://github.com/vuejs/repl) that I modified a little bit to enable certain things, namely:
+
+* Loading the lesson files that contain the relevant code we are discussing.
+* Provide a rich experience for authoring Vue code:
+  * <AvTooltipTrigger id="repl">Intellisense, linting, multi-file support</AvTooltipTrigger>
+  * <AvTooltipTrigger id="repl">Preview panel</AvTooltipTrigger>
+  * Console panel - some support to be able to `console.<log | warn | table...>` from your code
+  * History panel - means you can save and restore _snapshots_ of the code you write! A rather primitive versioning control system but one I found to work well for this use case.
+
+This video will explain how it works at the moment:
+
+```txt showLineNumbers=false
+<VIDEO GOES HERE>
+```
+
+<AvTooltipContent id="repl">
+:::info
+This was already part of the REPL
+:::
+</AvTooltipContent>

@@ -1,0 +1,82 @@
+---
+type: lesson
+title: Single File Components
+slug: single-file-components
+---
+
+# On SFCs
+
+On yehyecoa-vue (just as if you created a Vue app using [`create-vue`](https://vuejs.org/guide/quick-start#creating-a-vue-application) on your local machine) we are now working with _Single File Components_ (SFCs): you probably noticed that in this case we are greeted with an `App.vue` file.
+
+`*.vue`files are one of the characteristics that make Vue.js stand out. They allow us to encapsulate the template, logic, and styles of a component in a single file.
+
+You have 3 main sections in a Vue SFC:
+
+```vue title="App.vue" showLineNumbers=false {"the logic":1-16} {"the structure":18-22} {"the styles":24-29}
+
+//
+<script>
+import { ref, version } from 'vue';
+
+export default {
+  setup() {
+    const message = ref('Hola yehyecoa-vue!');
+    console.log('version:', version);
+
+    return {
+      message,
+      version,
+    };
+  },
+};
+</script>
+
+
+<template>
+  <h1>{{ message }}</h1>
+  Version is: <code>{{ version }}</code>
+</template>
+
+
+<style>
+h1 {
+  color: #42b983;
+}
+</style>
+
+```
+
+The order of the tags is not important, but I liked the reasoning I heard from a Vue instructor once: _"the template is the part that relates to both logic and style, so I place it in between those two"_. And it stuck with me, so it is also the way I do it 🤓.
+
+## Language Pre-processors
+
+You can also specify language attributes for different sections to use different languages or preprocessors. For example:
+
+```vue showLineNumbers=false
+<script lang="ts">
+  export default {
+    // TypeScript code here
+  }
+</script>
+```
+
+```vue showLineNumbers=false
+<template lang="pug">
+  div
+    h1 Hello, World!
+</template>
+```
+
+```vue showLineNumbers=false
+<style lang="scss">
+  /* SCSS styles here */
+</style>
+``` 
+
+I point this out because we might be leveraging TS in a few of the examples ahead. Unfortunately, the REPL does not support preprocessors for the `<template>` nor the `<style>` tags, so we will be sticking to HTML and CSS, but you should be aware that in a real-world project [you can use them](https://vuejs.org/api/sfc-spec#pre-processors).
+
+Since I want to keep things beginner friendly, I won't add lots of the details revolving SFCs, but you can check out the official docs where they describe them in more detail at these 2 places:
+
+* [The official guide](https://vuejs.org/guide/scaling-up/sfc)
+* [The official API docs](https://vuejs.org/api/sfc-spec)  
+
