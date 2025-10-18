@@ -754,6 +754,11 @@ view-toggle {
 
 .av-tooltip-portal .callout {
   --code-color: var(--tk-elements-markdown-callouts-titleTextColor);
+  li {
+    list-style: initial;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+  }
 }
 
 :root {
