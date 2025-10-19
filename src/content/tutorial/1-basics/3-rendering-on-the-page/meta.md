@@ -1,7 +1,7 @@
 ---
 type: chapter
-title: Chapter 2 - A Special Playground
-slug: a-special-playground
+title: Chapter 3 - Rendering on the page
+slug: rendering-on-the-page
 mainCommand: ['node server.js', 'Loading yehyecoa-vue']
 editor: false
 template: yehyecoa
