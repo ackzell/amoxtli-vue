@@ -59,8 +59,14 @@ header {
 .markdown-content
   :is(blockquote, p, ul, ol, table)
   + :is(blockquote, p, ul, ol, table),
-.markdown-content :is(a, p) + :is(ul, ol) {
+.markdown-content :is(a, p) + :is(ul, ol),
+.markdown-content :is(p, ul, ol) + .expressive-code,
+.markdown-content
+  :is(p, code, pre, .expressive-code)
+  + :is(code, pre, .expressive-code),
+.markdown-content :is(h1, h2, h3, h4, h5, h6) {
   margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .callout {
@@ -122,7 +128,7 @@ view-toggle {
   --tk-background-accent-secondary: theme('colors.accent.600');
   --tk-background-accent-active: theme('colors.accent.500');
   --tk-background-positive: theme('colors.positive.50');
-  --tk-background-warning: theme('colors.warning.50');
+  --tk-background-warning: theme('colors.warning.100');
   --tk-background-negative: theme('colors.negative.100');
   --tk-background-info: theme('colors.info.250');
   --tk-background-tip: theme('colors.tip.100');
@@ -140,7 +146,7 @@ view-toggle {
   --tk-text-active: theme('colors.primary');
   --tk-text-accent: theme('colors.primary');
   --tk-text-positive: theme('colors.positive');
-  --tk-text-warning: theme('colors.warning.600');
+  --tk-text-warning: theme('colors.warning.500');
   --tk-text-negative: theme('colors.negative.600');
   --tk-text-info: theme('colors.info.800');
   --tk-text-tip: theme('colors.tip.900');
@@ -150,7 +156,7 @@ view-toggle {
   --tk-border-brighter: theme('colors.gray.300');
   --tk-border-accent: theme('colors.primary');
   --tk-border-positive: theme('colors.positive.600');
-  --tk-border-warning: theme('colors.warning.600');
+  --tk-border-warning: theme('colors.warning.500');
   --tk-border-negative: theme('colors.negative.500');
   --tk-border-info: theme('colors.info.600');
   --tk-border-tip: theme('colors.tip.600');
