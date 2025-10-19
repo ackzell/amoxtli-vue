@@ -2,6 +2,7 @@
 import { ref, version } from 'vue';
 
 const message = ref('Hola yehyecoa-vue script setup!');
+console.log('version:', version);
 </script>
 
 <template>

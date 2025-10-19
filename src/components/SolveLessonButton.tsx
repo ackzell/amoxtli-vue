@@ -13,7 +13,7 @@ export function ToggleLessonStateButton() {
   const [solved, setSolved] = useState(false);
   return (
     <button
-      className="p-0 text-neutral rounded hover:text-primary-600 dark:hover:text-primary-dark-400"
+      className="p-0 text-text/80 dark:text-text-dark/80 rounded hover:text-primary-600 dark:hover:text-primary-dark-400"
       onClick={() => {
         if (solved) {
           tutorialStore.reset();
