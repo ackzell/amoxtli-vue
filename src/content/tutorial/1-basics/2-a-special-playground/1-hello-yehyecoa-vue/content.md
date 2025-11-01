@@ -7,7 +7,7 @@ slug: hello-yehyecoa-vue
 
 # Hello yehyecoa-vue!
 
-On the [first chapter of this Basics part](/basics/the-app-instance/intro) you saw what steps we need to take in order for a Vue app to run in the browser. 
+On the [first chapter of this Basics part](/basics/installing-vue/intro) you saw what steps we need to take in order for a Vue app to run in the browser. 
 
 This time we'll use the playground I built around the Vue REPL component and forget about the setup, and dive right into Vue itself. At least that is my goal with this.
 

@@ -225,10 +225,9 @@ view-toggle {
   --tk-background-accent-secondary: theme('colors.primary.dark');
   --tk-background-accent-active: theme('colors.accent.300');
   --tk-background-positive: theme('colors.positive.950');
-  --tk-background-warning: theme('colors.warning.950');
+  --tk-background-warning: theme('colors.warning.dark');
   --tk-background-negative: theme('colors.negative.950');
-  --tk-background-info: transparent;
-  --tk-background-warning: transparent;
+  --tk-background-info: theme('colors.info.dark');
   --tk-background-tip: theme('colors.tip.950');
 
   --tk-text-primary: theme(

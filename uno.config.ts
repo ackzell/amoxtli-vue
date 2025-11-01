@@ -95,7 +95,7 @@ export default defineConfig({
         900: 'oklch(37.9% 0.146 265.522)',
         950: 'oklch(28.2% 0.091 267.935)',
         // dark: 'oklch(0.1368 0.091 267.935)',
-        dark: 'transparent',
+        dark: 'oklch(6% 0.091 267.935)',
       },
       // tailwind emerald
       positive: {
@@ -126,6 +126,7 @@ export default defineConfig({
         800: 'oklch(47.3% 0.137 46.201)',
         900: 'oklch(41.4% 0.112 45.904)',
         950: 'oklch(27.9% 0.077 45.635)',
+        dark: 'oklch(10% 0.077 45.635)',
       },
       // tailwind red
       negative: {
@@ -142,6 +143,21 @@ export default defineConfig({
         900: 'oklch(39.6% 0.141 25.723)',
         950: 'oklch(25.8% 0.092 26.042)',
       },
+      // tailwind indigo
+      tip: {
+        DEFAULT: 'oklch(58.5% 0.233 277.117)',
+        50: 'oklch(96.2% 0.018 272.314)',
+        100: 'oklch(93% 0.034 272.788)',
+        200: 'oklch(87% 0.065 274.039)',
+        300: 'oklch(78.5% 0.115 274.713)',
+        400: 'oklch(67.3% 0.182 276.935)',
+        500: 'oklch(58.5% 0.233 277.117)',
+        600: 'oklch(51.1% 0.262 276.966)',
+        700: 'oklch(45.7% 0.24 277.023)',
+        800: 'oklch(39.8% 0.195 277.366)',
+        900: 'oklch(35.9% 0.144 278.697)',
+        950: 'oklch(10% 0.09 281.288)',
+      }
     },
   },
   shortcuts: {
