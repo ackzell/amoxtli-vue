@@ -228,7 +228,7 @@ view-toggle {
   --tk-background-warning: theme('colors.warning.dark');
   --tk-background-negative: theme('colors.negative.950');
   --tk-background-info: theme('colors.info.dark');
-  --tk-background-tip: theme('colors.tip.950');
+  --tk-background-tip: theme('colors.tip.dark');
 
   --tk-text-primary: theme(
     'colors.bgr.200'
@@ -673,7 +673,7 @@ view-toggle {
   --tk-elements-callouts-tip-iconColor: var(
     --tk-elements-callouts-tip-titleTextColor
   );
-  --tk-elements-callouts-tip-codeColor: var(--tk-text-primary);
+  --tk-elements-callouts-tip-codeColor: var(--tk-border-tip);
   --tk-elements-callouts-tip-codeBackgroundColor: var(
     --tk-background-secondary
   );
@@ -686,7 +686,7 @@ view-toggle {
   --tk-elements-callouts-info-iconColor: var(
     --tk-elements-callouts-info-titleTextColor
   );
-  --tk-elements-callouts-info-codeColor: var(--tk-text-primary);
+  --tk-elements-callouts-info-codeColor: var(--tk-border-info);
   --tk-elements-callouts-info-codeBackgroundColor: var(
     --tk-background-secondary
   );
@@ -701,7 +701,7 @@ view-toggle {
   --tk-elements-callouts-warning-iconColor: var(
     --tk-elements-callouts-warning-titleTextColor
   );
-  --tk-elements-callouts-warning-codeColor: var(--tk-text-primary);
+  --tk-elements-callouts-warning-codeColor: var(--tk-border-warning);
   --tk-elements-callouts-warning-codeBackgroundColor: var(
     --tk-background-secondary
   );
@@ -887,6 +887,9 @@ view-toggle {
 .av-tooltip-portal {
   p {
     color: var(--tk-text-primary);
+    code {
+      color: var(--code-color);
+    }
   }
 
   blockquote {
