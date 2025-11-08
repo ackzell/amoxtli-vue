@@ -201,6 +201,15 @@ view-toggle {
     --tk-elements-editor-backgroundColor
   );
   --tk-elements-editor-gutter-activeLineTextColor: theme('colors.bgr.500');
+
+  --av-ec-collapsibleSections-closed-bgColor: theme('colors.bgr.100');
+  --av-ec-collapsibleSections-closed-textColor: theme('colors.bgr.400');
+  --av-ec-collapsibleSections-open-bgColor: var(
+    --av-ec-collapsibleSections-closed-bgColor
+  );
+
+  --av-ec-frames-tooltipSuccessBackground: theme('colors.positive');
+  --av-ec-frames-tooltipSuccessForeground: theme('colors.bgr.dark');
 }
 
 /* Color Tokens Dark */
@@ -304,6 +313,15 @@ view-toggle {
     --tk-elements-editor-backgroundColor
   );
   --tk-elements-editor-gutter-activeLineTextColor: theme('colors.bgr.300');
+
+  --av-ec-collapsibleSections-closedBackgroundColor: theme('colors.bgr.800');
+  --av-ec-collapsibleSections-closedTextColor: theme('colors.bgr.500');
+  --av-ec-collapsibleSections-openBackgroundColorCollapsible: var(
+    --av-ec-collapsibleSections-closedBackgroundColor
+  );
+
+  --av-ec-frames-tooltipSuccessBackground: theme('colors.positive');
+  --av-ec-frames-tooltipSuccessForeground: theme('colors.bgr');
 }
 
 /*
@@ -976,7 +994,7 @@ view-toggle {
     farthest-corner circle at 50% -19% in oklch decreasing hue,
     var(--amv-highlight) 12%,
     14%,
-    oklch(0.9702 0 0) 51%
+    oklch(0.9702 0 0) 30%
   );
 }
 

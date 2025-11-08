@@ -45,7 +45,6 @@
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
     "hastscript": "^9.0.1",
-    "logos": "link:@iconify/json/logos",
     "prettier-plugin-astro": "^0.14.1",
     "react-tooltip": "^5.29.1",
     "rehype-autolink-headings": "^7.1.0",
