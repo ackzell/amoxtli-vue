@@ -202,10 +202,10 @@ view-toggle {
   );
   --tk-elements-editor-gutter-activeLineTextColor: theme('colors.bgr.500');
 
-  --av-ec-collapsibleSections-closed-bgColor: theme('colors.bgr.100');
-  --av-ec-collapsibleSections-closed-textColor: theme('colors.bgr.400');
-  --av-ec-collapsibleSections-open-bgColor: var(
-    --av-ec-collapsibleSections-closed-bgColor
+  --av-ec-collapsibleSections-closedBackgroundColor: theme('colors.bgr.100');
+  --av-ec-collapsibleSections-closedTextColor: theme('colors.bgr.400');
+  --av-ec-collapsibleSections-openBackgroundColorCollapsible: var(
+    --av-ec-collapsibleSections-closedBackgroundColor
   );
 
   --av-ec-frames-tooltipSuccessBackground: theme('colors.positive');
