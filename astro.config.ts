@@ -63,6 +63,31 @@ export default defineConfig({
           titleClass: 'av-title',
         }),
       ],
+      expressiveCodeStyleOverrides: {
+        textMarkers: {
+          markHue({ theme }) {
+            return theme.type == 'dark' ? '359.59' : '69.68';
+          },
+          defaultChroma({ theme }) {
+            return theme.type == 'dark' ? '77.59' : '63.4';
+          },
+          defaultLuminance({ theme }) {
+            return theme.type == 'dark' ? '50.08' : '73.06'
+          },
+          backgroundOpacity: '15%'
+        },
+        collapsibleSections: {
+          closedBackgroundColor: 'var(--av-ec-collapsibleSections-closedBackgroundColor)',
+          closedTextColor: 'var(--av-ec-collapsibleSections-closedTextColor)',
+          openBackgroundColorCollapsible: 'var(--av-ec-collapsibleSections-openBackgroundColorCollapsible)'
+        },
+        frames: {
+          tooltipSuccessBackground: 'var(--tk-text-positive)',
+          tooltipSuccessForeground({ theme }) {
+            return theme.type == 'light' ? 'whitesmoke' : 'black'
+          }
+        }
+      }
     }),
   ],
 });
