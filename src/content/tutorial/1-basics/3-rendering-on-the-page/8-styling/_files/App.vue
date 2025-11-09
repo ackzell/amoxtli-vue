@@ -21,6 +21,13 @@ const chatMessages = [
     reactions: ['💚'],
   },
 ];
+
+// don't worry about this right now, just check the console output
+onMounted(() => {
+  console.log(document.querySelectorAll('.they')[0]);
+  console.log(document.querySelector('.me'));
+  console.log(document.querySelectorAll('.they')[1]);
+});
 </script>
 
 <template>

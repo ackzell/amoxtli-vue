@@ -1,0 +1,14 @@
+---
+type: lesson
+title: Styling primer
+slug: styling-primer
+---
+
+# Styling primer
+
+Let's focus a little bit on the styles for the chat we were just looking at. Note we have a `sender` property on all the elements of our `chatMessages` array.
+
+```file:/App.vue title="App.vue" /sender: '[^']+'/ {'We use that "sender" value for the class name on every li item': 36-37} /:class="entry.sender"/ /\\.me\b/ /\\.they/ {} collapse={25-29, 49-61, 63-80, 93-108} {'Which matches one of the class names we prepared in our CSS':81-91}
+```
+
+I will leave it here for now, so that we can explore styling our output in more detail in a dedicated chapter.
