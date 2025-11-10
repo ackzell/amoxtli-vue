@@ -9,6 +9,21 @@ import 'styles/global.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+    <style>
+      html {
+        background-color: oklch(0.15 0.1 110);
+      }
+      body {
+        background-color: transparent;
+      }
+      html[data-theme='light'] {
+        background-color: oklch(0.9702 0 0);
+      }
+      html[data-theme='dark'] {
+        background-color: oklch(0.15 0.1 110);
+      }
+    </style>
+
     <script>
       const root = document.documentElement;
 
@@ -38,6 +53,7 @@ import 'styles/global.css';
     min-h-dvh
     flex flex-col items-center justify-center gap-4
     font-sans antialiased"
+    bg-transparent
   >
     <div class="position-fixed top-4 right-4">
       <ThemeSwitcher client:load />
