@@ -7,6 +7,7 @@ editor: false
 terminal: false
 ---
 import { AvTooltipTrigger, AvTooltipContent} from '@/components/AvTooltip'
+import YouTubeEmbed from '@/components/YouTubeEmbed.tsx'
 
 # A special playground
 
@@ -28,9 +29,16 @@ This is part of the secret sauce that I want to use for the material you are loo
 
 This video will explain how it works at the moment:
 
-```txt showLineNumbers=false
-<VIDEO GOES HERE>
-```
+
+<YouTubeEmbed 
+  client:only="react"
+  id="FQa1vJdseDg"
+  title="yehyecoa-vue #vuejs #playground"
+  duration="11 min"
+>
+  This is how the custom Vue playground works within the Amoxtli Vue project.
+</YouTubeEmbed>
+
 
 <AvTooltipContent id="repl">
 :::info
