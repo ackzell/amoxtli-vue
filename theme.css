@@ -63,9 +63,13 @@ header {
 .markdown-content :is(p, ul, ol) + .expressive-code,
 .markdown-content
   :is(p, code, pre, .expressive-code)
-  + :is(code, pre, .expressive-code),
-.markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  + :is(code, pre, .expressive-code) {
   margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  margin-block-start: 1.5rem;
   margin-block-end: 0;
 }
 

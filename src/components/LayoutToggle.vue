@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useBrowserLocation } from '@vueuse/core';
+import { useBrowserLocation, useStorage } from '@vueuse/core';
 import { ref, watch, onMounted } from 'vue';
 
 const mainPanel = ref<Element | null>();
-const isMainPanelExpanded = ref(false);
+const isMainPanelExpanded = useStorage('amv-is-main-panel-expanded', false);
 
 const sidePanel = ref<Element | null>();
-const isSidePanelExpanded = ref(false);
+const isSidePanelExpanded = useStorage('amv-is-side-panel-expanded', false);;
 
 const currentLocation = useBrowserLocation();
 

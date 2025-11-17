@@ -1,0 +1,35 @@
+---
+type: lesson
+title: ref
+slug: ref
+---
+
+
+# ref
+
+> So how do we _mark_ those variables then? 
+
+Great question! The [recommended way](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state-1) to do so is by "wrapping" them with `ref()`. Let's focus on that first in our example code:
+
+```file:/App.vue title="App.vue" {"We import ref":2-3} {"The message variable is now reactive":5-6} {"We use the variable in the template, like before":23-24} collapse={8-18, 26-31, 33-42}
+```
+
+That's great, I think I had similar code somewhere in the examples already. It is actually pretty intuitive, isn't it?
+
+But then, we need to also see the rest of the code to understand a couple things better: What happens if we update the value of the `message` after it has been declared?
+
+Let's focus now on the flow of the `message`'s value now that we update it from the text input: when the user types something, the `h1` will be automagically updated with the input's current value. And when you click on the button, you should see in the console output the latest value that matches the `h1`. 
+
+```file:/App.vue title="App.vue" {"Handles the update from the input":7-10} {"This logs the 'wrapped' variable, eg. an object":13-14}  {"Whereas this logs the actual value we care about":15-16} {"Bind the message variable to the input's value and change it when user types in it":25-26}  collapse={2-5, 18-19, 29-30, 33-41}
+```
+
+Did you notice the `.value` we appended when referring to `message` in the `<script>` tag? We **must** use the `.value` there because otherwise we would be referring to the "wrapper object" that Vue uses to keep track of the changes for the variable.
+
+That is not the case when referring to the `message` variable in the `<template>` tag because Vue _unwraps_ the value for you in that case.
+
+Finally, I left the `version` variable on purpose here. Don't mark your variables reactive if: 
+* You know the _value won't change_ 
+* You _don't need_ to keep track of it
+
+```file:/App.vue title="App.vue" {"NOT reactive":18-19} collapse={4-17, 33-41} /(?<!')\bversion\b/
+```
