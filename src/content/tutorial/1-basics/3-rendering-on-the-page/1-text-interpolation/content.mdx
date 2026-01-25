@@ -65,3 +65,21 @@ const GLOBALS_ALLOWED =
 ```
 :::
 </AvTooltipContent>
+
+```vue twoslash
+// @errors: 2339 1005 1128
+
+<script setup>
+import { ref, version } from 'vue';
+const message = ref('Interpolation');
+const ok = true;
+
+console.log('version:', version);
+</script>
+
+<template>
+  
+  {{ if (ok) { return message } }}
+</template>
+
+```

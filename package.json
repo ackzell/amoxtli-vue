@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/netlify": "^5.5.4",
     "dotenv": "^17.2.2",
+    "expressive-code-twoslash": "file:../../oss/EC-Plugins/packages/twoslash",
     "floating-vue": "^5.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -59,7 +60,9 @@
       "@tutorialkit/react": "file:../../oss/tutorialkit/packages/react",
       "@tutorialkit/runtime": "file:../../oss/tutorialkit/packages/runtime",
       "@tutorialkit/theme": "file:../../oss/tutorialkit/packages/theme",
-      "@tutorialkit/types": "file:../../oss/tutorialkit/packages/types"
+      "@tutorialkit/types": "file:../../oss/tutorialkit/packages/types",
+
+      "expressive-code-twoslash": "file:../../oss/EC-Plugins/packages/twoslash"
     }
   }
 }
