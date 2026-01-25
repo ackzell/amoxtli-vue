@@ -2,6 +2,7 @@ import vue from '@astrojs/vue';
 import tutorialkit from '@tutorialkit/astro';
 import { pluginFileIcons } from '@xt0rted/expressive-code-file-icons';
 import { defineConfig } from 'astro/config';
+import ecTwoSlash from "expressive-code-twoslash";
 import { h } from 'hastscript';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -57,11 +58,21 @@ export default defineConfig({
       },
       expressiveCodeThemes: ['snazzy-light', 'vesper'],
       expressiveCodePlugins: [
+        // Debug plugin - add this FIRST
+        // {
+        //   name: 'debug-logger',
+        //   hooks: {
+        //     preprocessCode: ({ codeBlock }) => {
+        //       console.error('🔍 CODE BLOCK DETECTED - Language:', codeBlock.language, '| Meta:', codeBlock.meta);
+        //     }
+        //   }
+        // },
         // @ts-ignore
         pluginFileIcons({
           iconClass: 'av-icon',
           titleClass: 'av-title',
         }),
+        ecTwoSlash(),
       ],
       expressiveCodeStyleOverrides: {
         textMarkers: {
@@ -86,7 +97,11 @@ export default defineConfig({
           tooltipSuccessForeground({ theme }) {
             return theme.type == 'light' ? 'whitesmoke' : 'black'
           }
-        }
+        },
+        twoSlash: {
+          cursorColor: ({ theme }) => (theme.type === 'dark' ? '#ffffff' : '#000000'),
+          borderColor: ({ theme }) => (theme.type === 'dark' ? '#464646ff' : '#cccccc'),
+        },
       }
     }),
   ],
