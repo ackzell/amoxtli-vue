@@ -67,9 +67,9 @@ function sendSSE(res, event, data) {
   res.write(`data: ${JSON.stringify(data)}\n\n`);
 }
 
-function broadcastFilesChanged(lessonName, files, error = null) {
+function broadcastFilesChanged(yvLesson, files, error = null) {
   clients.forEach((client) => {
-    sendSSE(client, 'filesChanged', { lessonName, files, error });
+    sendSSE(client, 'filesChanged', { yvLesson, files, error });
   });
 }
 
@@ -116,7 +116,7 @@ const excludeFolders = [
 
 // Function to send file contents to clients
 function sendFileContents() {
-  let lessonName = null;
+  let yvLesson = null;
   let error = null;
 
   // Try to read and parse the lesson file
@@ -124,9 +124,8 @@ function sendFileContents() {
     const lessonFilePath = path.join(baseDir, 'yv-lesson.json');
     if (fs.existsSync(lessonFilePath)) {
       const lessonFileContent = fs.readFileSync(lessonFilePath, 'utf-8');
-      const yvLesson = JSON.parse(lessonFileContent);
-      lessonName = yvLesson.lessonName;
-      console.warn(`[files] Lesson file found: ${lessonName}`);
+      yvLesson = JSON.parse(lessonFileContent);
+      console.warn(`[files] Lesson file found: ${yvLesson.lessonName}`);
     }
     else {
       error = 'yv-lesson.json not found';
@@ -170,8 +169,9 @@ function sendFileContents() {
     error = error ? `${error}; Directory read failed: ${dirErr.message}` : `Directory read failed: ${dirErr.message}`;
   }
 
+  console.log('about to broadcast', yvLesson);
   // Broadcast to all clients with current state
-  broadcastFilesChanged(lessonName, files, error);
+  broadcastFilesChanged(yvLesson, files, error);
 }
 
 // HTTP server

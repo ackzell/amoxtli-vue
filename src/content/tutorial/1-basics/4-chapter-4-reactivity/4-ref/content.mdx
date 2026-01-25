@@ -1,11 +1,11 @@
 ---
 type: lesson
-title: ref
+title: ref()
 slug: ref
 ---
+import { AvTooltipTrigger, AvTooltipContent} from '@components/AvTooltip'
 
-
-# ref
+# ref()
 
 > So how do we _mark_ those variables then? 
 
@@ -25,7 +25,17 @@ Let's focus now on the flow of the `message`'s value now that we update it from 
 
 Did you notice the `.value` we appended when referring to `message` in the `<script>` tag? We **must** use the `.value` there because otherwise we would be referring to the "wrapper object" that Vue uses to keep track of the changes for the variable.
 
-That is not the case when referring to the `message` variable in the `<template>` tag because Vue _unwraps_ the value for you in that case.
+That is not the case when referring to the `message` variable in the `<template>` tag because Vue _unwraps_ the value for you <AvTooltipTrigger id="unwrapping">(with some caveats)</AvTooltipTrigger> in that case.
+
+<AvTooltipContent id="unwrapping">
+:::info
+> Ref unwrapping in templates only applies if the ref is a top-level property in the template render context.
+
+> Another thing to note is that a ref does get unwrapped if it is the final evaluated value of a text interpolation (i.e. a `{{ }}` tag)
+
+Learn more about this in [the official documentation](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#caveat-when-unwrapping-in-templates)
+:::
+</AvTooltipContent>
 
 Finally, I left the `version` variable on purpose here. Don't mark your variables reactive if: 
 * You know the _value won't change_ 
@@ -33,3 +43,9 @@ Finally, I left the `version` variable on purpose here. Don't mark your variable
 
 ```file:/App.vue title="App.vue" {"NOT reactive":18-19} collapse={4-17, 33-41} /(?<!')\bversion\b/
 ```
+
+:::tip
+In the [words of the docs](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#why-refs):
+
+> Another nice trait of refs is that unlike plain variables, you can pass refs into functions while retaining access to the latest value and the reactivity connection. This is particularly useful when refactoring complex logic into reusable code.
+:::
